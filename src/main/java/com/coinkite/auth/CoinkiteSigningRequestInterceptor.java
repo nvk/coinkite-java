@@ -36,8 +36,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.time.Clock;
 import java.time.LocalDateTime;
-import java.util.Base64;
+import java.time.ZoneId;
 import java.util.Optional;
 
 import static com.coinkite.Constants.*;
@@ -55,7 +56,7 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
 
     public CoinkiteSigningRequestInterceptor() {
 
-        this(LocalDateTime.now());
+        this(LocalDateTime.now(Clock.system(ZoneId.of("UTC"))));
     }
 
     public CoinkiteSigningRequestInterceptor(LocalDateTime dateTime) {

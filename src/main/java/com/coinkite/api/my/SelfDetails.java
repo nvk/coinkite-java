@@ -171,4 +171,17 @@ public class SelfDetails {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+
+        return "SelfDetails{" +
+                "apiKey=" + apiKey +
+                ", memberSince='" + memberSince + '\'' +
+                ", membership='" + membership + '\'' +
+                ", nyms=" + nyms +
+                ", supportedCct=" + supportedCct +
+                ", username='" + username + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }
