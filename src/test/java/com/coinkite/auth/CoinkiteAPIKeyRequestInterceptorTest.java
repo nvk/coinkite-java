@@ -24,28 +24,28 @@
 
 package com.coinkite.auth;
 
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
+import com.coinkite.Constants;
+import com.coinkite.EnvironmentUtility;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.Optional;
+import static org.junit.Assert.assertEquals;
 
-import static com.coinkite.Constants.X_CK_KEY;
-import static java.util.Optional.ofNullable;
+public class CoinkiteAPIKeyRequestInterceptorTest {
 
-public class CoinkiteAPIKeyRequestInterceptor implements RequestInterceptor {
+    private static final String API_KEY = "this-is-my-key";
 
+    @Before
+    public void setup() throws Exception {
 
-    @Override
-    public void apply(RequestTemplate template) {
-
-        template.header(X_CK_KEY, getApiKey());
+        EnvironmentUtility.set(Constants.X_CK_KEY, API_KEY);
     }
 
-    protected String getApiKey() {
+    @Test
+    public void doesAPISecretGetRead() {
 
-        Optional<String> key = ofNullable(System.getenv(X_CK_KEY));
+        String apiKey = new CoinkiteAPIKeyRequestInterceptor().getApiKey();
 
-        return key.orElseThrow(() -> new RuntimeException("Coinkite key was not passed in as a jvm arg or set on env."));
+        assertEquals(API_KEY, apiKey);
     }
-
 }

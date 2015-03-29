@@ -24,18 +24,25 @@
 
 package com.coinkite.auth;
 
+import com.coinkite.Constants;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.util.Optional;
+
+import static com.coinkite.Constants.*;
+import static java.time.format.DateTimeFormatter.ISO_DATE_TIME;
+import static java.util.Optional.ofNullable;
 
 /**
  * <a href="https://docs.coinkite.com/api/auth.html#how-to-authorize-requests">https://docs.coinkite.com/api/auth.html#how-to-authorize-requests</a><br />
@@ -43,26 +50,34 @@ import java.util.Base64;
  */
 public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
 
+    private final LocalDateTime dateTime;
     Logger logger = LoggerFactory.getLogger(CoinkiteSigningRequestInterceptor.class);
 
-    public static final String X_CK_SIGN = "X-CK-Sign";
-    public static final String X_CK_TIMESTAMP = "X-CK-Timestamp";
-    private static final String HMAC_SHA512_ALG = "HmacSHA256";
+    public CoinkiteSigningRequestInterceptor() {
+
+        this(LocalDateTime.now());
+    }
+
+    public CoinkiteSigningRequestInterceptor(LocalDateTime dateTime) {
+
+        this.dateTime = dateTime;
+    }
 
     @Override
     public void apply(RequestTemplate template) {
 
-        template.url();
-        SecretKeySpec signingKey = new SecretKeySpec("private-key".getBytes(), HMAC_SHA512_ALG);
+        String apiSecret = getApiSecret();
+
+        SecretKeySpec signingKey = new SecretKeySpec(apiSecret.getBytes(StandardCharsets.UTF_8), HMAC_SHA512_ALG);
         try {
 
             Mac mac = Mac.getInstance(HMAC_SHA512_ALG);
             mac.init(signingKey);
 
-            String ts = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
+            String ts = dateTime.format(ISO_DATE_TIME);
 
-            byte[] bytes = mac.doFinal(getData(ts));
-            String encoded = Base64.getEncoder().encodeToString(bytes);
+            byte[] bytes = mac.doFinal(getData(template.url(), ts));
+            String encoded = Hex.encodeHexString(bytes);
 
             template.header(X_CK_SIGN, encoded);
             template.header(X_CK_TIMESTAMP, ts);
@@ -76,10 +91,18 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
 
     }
 
-    private byte[] getData(String ts) {
+    private byte[] getData(String urlOrEndpoint, String ts) {
 
-        String data = "endpoint" + "|" + ts;
+        String data = urlOrEndpoint + "|" + ts;
 
-        return data.getBytes();
+        return data.getBytes(StandardCharsets.UTF_8);
+    }
+
+
+    protected String getApiSecret() {
+
+        Optional<String> secret = ofNullable(System.getenv(Constants.X_CK_SIGN));
+
+        return secret.orElseThrow(() -> new RuntimeException("Coinkite secret was not passed in as a jvm arg or set on env."));
     }
 }

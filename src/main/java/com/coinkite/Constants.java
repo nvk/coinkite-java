@@ -22,30 +22,13 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.auth;
+package com.coinkite;
 
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
+public class Constants {
 
-import java.util.Optional;
-
-import static com.coinkite.Constants.X_CK_KEY;
-import static java.util.Optional.ofNullable;
-
-public class CoinkiteAPIKeyRequestInterceptor implements RequestInterceptor {
-
-
-    @Override
-    public void apply(RequestTemplate template) {
-
-        template.header(X_CK_KEY, getApiKey());
-    }
-
-    protected String getApiKey() {
-
-        Optional<String> key = ofNullable(System.getenv(X_CK_KEY));
-
-        return key.orElseThrow(() -> new RuntimeException("Coinkite key was not passed in as a jvm arg or set on env."));
-    }
+    public static final String X_CK_KEY = "X-CK-Key";
+    public static final String X_CK_SIGN = "X-CK-Sign";
+    public static final String X_CK_TIMESTAMP = "X-CK-Timestamp";
+    public static final String HMAC_SHA512_ALG = "HmacSHA256";
 
 }

@@ -22,30 +22,35 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.auth;
+package com.coinkite;
 
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.Optional;
+public class EnvironmentUtility {
 
-import static com.coinkite.Constants.X_CK_KEY;
-import static java.util.Optional.ofNullable;
+    public static void set(String key, String value) throws Exception {
 
-public class CoinkiteAPIKeyRequestInterceptor implements RequestInterceptor {
-
-
-    @Override
-    public void apply(RequestTemplate template) {
-
-        template.header(X_CK_KEY, getApiKey());
+        Map<String, String> map = new HashMap<>();
+        map.put(key, value);
+        set(map);
     }
 
-    protected String getApiKey() {
-
-        Optional<String> key = ofNullable(System.getenv(X_CK_KEY));
-
-        return key.orElseThrow(() -> new RuntimeException("Coinkite key was not passed in as a jvm arg or set on env."));
+    public static void set(Map<String, String> newenv) throws Exception {
+        Class[] classes = Collections.class.getDeclaredClasses();
+        Map<String, String> env = System.getenv();
+        for(Class cl : classes) {
+            if("java.util.Collections$UnmodifiableMap".equals(cl.getName())) {
+                Field field = cl.getDeclaredField("m");
+                field.setAccessible(true);
+                Object obj = field.get(env);
+                Map<String, String> map = (Map<String, String>) obj;
+                map.clear();
+                map.putAll(newenv);
+            }
+        }
     }
 
 }
