@@ -1,0 +1,8 @@
+{
+  "memo": "this is a memo",
+  "amount": 5000,
+  "account": "account",
+  "show_public": true,
+  "show_memo": true,
+  "show_username": false
+}
