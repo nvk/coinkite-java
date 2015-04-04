@@ -1,0 +1,61 @@
+{
+  "args": {
+    "account": {
+      "CK_acct_type": "std",
+      "CK_refnum": "07160291A3-CCF2E5",
+      "CK_type": "CKAccount",
+      "coin_type": "XTN",
+      "is_closed": false,
+      "name": "BT_SENDCHAT_FW_TST",
+      "subaccount": 1
+    },
+    "amount": {
+      "currency": "XTN",
+      "decimal": 500000,
+      "integer": 50000000000000,
+      "integer_scale": 8,
+      "pretty": "\u2740 500,000.0 XTN",
+      "string": "500000"
+    },
+    "memo": null
+  },
+  "result": {
+    "CK_refnum": "B496DD2A19-6FE703",
+    "CK_req_type": "recv",
+    "CK_type": "CKReqReceive",
+    "account": "07160291A3-CCF2E5",
+    "address": "mxkp9oQ7qV8Sqb6im1UonBzrC54EnsNtyW",
+    "amount": {
+      "currency": "XTN",
+      "decimal": 500000,
+      "integer": 50000000000000,
+      "integer_scale": 8,
+      "pretty": "\u2740 500,000.0 XTN",
+      "string": "500000"
+    },
+    "amount_so_far": {
+      "currency": "XTN",
+      "decimal": 0,
+      "integer": 0,
+      "integer_scale": 8,
+      "pretty": "\u2740 0.0 XTN",
+      "string": "0"
+    },
+    "archived_at": null,
+    "coin": {
+      "CK_refnum": "6D33CA0364-1914F4",
+      "CK_type": "CKMagicCoin",
+      "address": "mxkp9oQ7qV8Sqb6im1UonBzrC54EnsNtyW",
+      "coin_type": "XTN",
+      "subkey": "root/1/10"
+    },
+    "coin_type": "XTN",
+    "desc": "Receive Funds",
+    "is_completed": false,
+    "memo": null,
+    "qr_url": "bitcoin:mxkp9oQ7qV8Sqb6im1UonBzrC54EnsNtyW?amount=500000.0",
+    "show_memo": false,
+    "show_public": false,
+    "show_username": false
+  }
+}

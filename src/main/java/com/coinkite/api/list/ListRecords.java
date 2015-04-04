@@ -26,12 +26,13 @@ package com.coinkite.api.list;
 
 import feign.RequestLine;
 
-import java.util.List;
-
 public interface ListRecords {
 
     @RequestLine("GET /v1/list/receives")
-    List<Receive> receives();
+    ListReceivesResponse receives();
+
+//    @RequestLine("GET /v1/list/receives")
+//    ListReceivesResponse receivesFiltered(Filterable filterable);
 
 
 }

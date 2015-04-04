@@ -22,45 +22,74 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.neww;
+package com.coinkite.api;
 
-import com.coinkite.api.list.Receive;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigDecimal;
+
+/**
+ * {
+ "help_msg": "Responses are being rate-limited: min gap time 2s",
+ "message": "Too Many Requests",
+ "status": 429,
+ "wait_time": 1.759
+ }
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ReceiveResponse {
+public class RestError {
 
-    private ReceiveResponseArgs args;
-    private Receive result;
+    @JsonProperty("help_msg")
+    private String helpMsg;
+    @JsonProperty("message")
+    private String message;
+    @JsonProperty("status")
+    private int status;
+    @JsonProperty("wait_time")
+    private BigDecimal waitTime;
+//    @JsonProperty("so_far")
+//    private
 
-    public ReceiveResponseArgs getArgs() {
+    public String getHelpMsg() {
 
-        return args;
+        return helpMsg;
     }
 
-    public void setArgs(ReceiveResponseArgs args) {
+    public void setHelpMsg(String helpMsg) {
 
-        this.args = args;
+        this.helpMsg = helpMsg;
     }
 
-    public Receive getResult() {
+    public String getMessage() {
 
-        return result;
+        return message;
     }
 
-    public void setResult(Receive result) {
+    public void setMessage(String message) {
 
-        this.result = result;
+        this.message = message;
     }
 
-    @Override
-    public String toString() {
+    public int getStatus() {
 
-        return "ReceiveResponse{" +
-                "args=" + args +
-                ", result=" + result +
-                '}';
+        return status;
+    }
+
+    public void setStatus(int status) {
+
+        this.status = status;
+    }
+
+    public BigDecimal getWaitTime() {
+
+        return waitTime;
+    }
+
+    public void setWaitTime(BigDecimal waitTime) {
+
+        this.waitTime = waitTime;
     }
 }

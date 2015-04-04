@@ -47,7 +47,7 @@ public class Receive  {
     @JsonProperty("amount")
     private Object amount;
     @JsonProperty("amount_so_far")
-    private AmountSoFar amountSoFar;
+    private CurrencyAmount amountSoFar;
     @JsonProperty("archived_at")
     private Object archivedAt;
     @JsonProperty("coin")
@@ -183,7 +183,7 @@ public class Receive  {
      * @return The amountSoFar
      */
     @JsonProperty("amount_so_far")
-    public AmountSoFar getAmountSoFar() {
+    public CurrencyAmount getAmountSoFar() {
 
         return amountSoFar;
     }
@@ -192,7 +192,7 @@ public class Receive  {
      * @param amountSoFar The amount_so_far
      */
     @JsonProperty("amount_so_far")
-    public void setAmountSoFar(AmountSoFar amountSoFar) {
+    public void setAmountSoFar(CurrencyAmount amountSoFar) {
 
         this.amountSoFar = amountSoFar;
     }
@@ -389,4 +389,28 @@ public class Receive  {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+
+        return "Receive{" +
+                "CKRefnum='" + CKRefnum + '\'' +
+                ", CKReqType='" + CKReqType + '\'' +
+                ", CKType='" + CKType + '\'' +
+                ", account='" + account + '\'' +
+                ", address='" + address + '\'' +
+                ", amount=" + amount +
+                ", amountSoFar=" + amountSoFar +
+                ", archivedAt=" + archivedAt +
+                ", coin=" + coin +
+                ", coinType='" + coinType + '\'' +
+                ", desc='" + desc + '\'' +
+                ", isCompleted=" + isCompleted +
+                ", memo='" + memo + '\'' +
+                ", qrUrl='" + qrUrl + '\'' +
+                ", showMemo=" + showMemo +
+                ", showPublic=" + showPublic +
+                ", showUsername=" + showUsername +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

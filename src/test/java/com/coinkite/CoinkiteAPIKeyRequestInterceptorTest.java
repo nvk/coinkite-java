@@ -22,45 +22,31 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.neww;
+package com.coinkite;
 
-import com.coinkite.api.list.Receive;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.coinkite.CoinkiteAPIKeyRequestInterceptor;
+import com.coinkite.Constants;
+import com.coinkite.EnvironmentUtility;
+import org.junit.Before;
+import org.junit.Test;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ReceiveResponse {
+import static org.junit.Assert.assertEquals;
 
-    private ReceiveResponseArgs args;
-    private Receive result;
+public class CoinkiteAPIKeyRequestInterceptorTest {
 
-    public ReceiveResponseArgs getArgs() {
+    private static final String API_KEY = "this-is-my-key";
 
-        return args;
+    @Before
+    public void setup() throws Exception {
+
+        EnvironmentUtility.set(Constants.X_CK_KEY, API_KEY);
     }
 
-    public void setArgs(ReceiveResponseArgs args) {
+    @Test
+    public void doesAPISecretGetRead() {
 
-        this.args = args;
-    }
+        String apiKey = new CoinkiteAPIKeyRequestInterceptor().getApiKey();
 
-    public Receive getResult() {
-
-        return result;
-    }
-
-    public void setResult(Receive result) {
-
-        this.result = result;
-    }
-
-    @Override
-    public String toString() {
-
-        return "ReceiveResponse{" +
-                "args=" + args +
-                ", result=" + result +
-                '}';
+        assertEquals(API_KEY, apiKey);
     }
 }

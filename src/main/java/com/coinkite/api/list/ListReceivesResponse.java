@@ -22,45 +22,35 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.neww;
+package com.coinkite.api.list;
 
-import com.coinkite.api.list.Receive;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ReceiveResponse {
+import com.coinkite.api.PageableFilterable;
 
-    private ReceiveResponseArgs args;
-    private Receive result;
+import java.util.ArrayList;
+import java.util.List;
 
-    public ReceiveResponseArgs getArgs() {
+public class ListReceivesResponse extends PageableFilterable {
 
-        return args;
+    List<Receive> results = new ArrayList<>();
+
+
+    public List<Receive> getResults() {
+
+        return results;
     }
 
-    public void setArgs(ReceiveResponseArgs args) {
+    public void setResults(List<Receive> results) {
 
-        this.args = args;
-    }
-
-    public Receive getResult() {
-
-        return result;
-    }
-
-    public void setResult(Receive result) {
-
-        this.result = result;
+        this.results = results;
     }
 
     @Override
     public String toString() {
 
-        return "ReceiveResponse{" +
-                "args=" + args +
-                ", result=" + result +
+        return "ListReceivesResponse{" +
+                "paging=" + getPaging() +
+                ", results=" + results +
                 '}';
     }
 }

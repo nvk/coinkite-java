@@ -24,6 +24,8 @@
 
 package com.coinkite.api.neww;
 
+import com.coinkite.api.list.CurrencyAmount;
+import com.coinkite.api.my.AccountSummary;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -31,10 +33,11 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
-public class ReceiveRequestTest {
+public class ReceiveResponseArgsMarshalTest {
 
     private ObjectMapper om;
 
@@ -48,29 +51,30 @@ public class ReceiveRequestTest {
     public void canUnmarshalFromJson() throws IOException {
 
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("receiveRequest.json").getFile());
+        File file = new File(classLoader.getResource("receiveResponse.json").getFile());
 
-        ReceiveRequest rr = om.readValue(file, ReceiveRequest.class);
+        ReceiveResponse rr = om.readValue(file, ReceiveResponse.class);
 
-        assertEquals("account", rr.getAccount());
-        assertEquals(new Integer(5000), rr.getAmount());
-        assertEquals("this is a memo", rr.getMemo());
-        assertEquals(true, rr.isShowMemo());
-        assertEquals(true, rr.isShowPublic());
-        assertEquals(false, rr.isShowUsername());
+        AccountSummary account = rr.getArgs().getAccount();
+        assertEquals("std", account.getCKAcctType());
+
+        CurrencyAmount amount = rr.getArgs().getAmount();
+        assertEquals("XTN", amount.getCurrency());
+
+
     }
 
     @Test
     public void canMarshalToJson() throws JsonProcessingException {
 
-        ReceiveRequest rr = new ReceiveRequest();
-        rr.setAccount("account");
-        rr.setAmount(5000);
-        rr.setMemo("this is a memo");
-        rr.setShowMemo(true);
-        rr.setShowPublic(true);
-        rr.setShowUsername(false);
-
-        assertEquals("{\"memo\":\"this is a memo\",\"amount\":5000,\"account\":\"account\",\"show_public\":true,\"show_memo\":true,\"show_username\":false}", om.writeValueAsString(rr));
+//        ReceiveRequest rr = new ReceiveRequest();
+//        rr.setAccount("account");
+//        rr.setAmount(new BigDecimal(500000));
+//        rr.setMemo("this is a memo");
+//        rr.setShowMemo(true);
+//        rr.setShowPublic(true);
+//        rr.setShowUsername(false);
+//
+//        assertEquals("{\"memo\":\"this is a memo\",\"amount\":5000,\"account\":\"account\",\"show_public\":true,\"show_memo\":true,\"show_username\":false}", om.writeValueAsString(rr));
     }
 }

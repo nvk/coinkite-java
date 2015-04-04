@@ -22,9 +22,10 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.auth;
+package com.coinkite;
 
 
+import com.coinkite.CoinkiteSigningRequestInterceptor;
 import com.coinkite.Constants;
 import com.coinkite.EnvironmentUtility;
 import feign.RequestTemplate;
@@ -63,7 +64,8 @@ public class CoinkiteSigningRequestInterceptorTest {
 
         LocalDateTime dateTime = LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse("2014-06-03T17:48:47.774453"));
 
-        CoinkiteSigningRequestInterceptor coinkiteSigningRequestInterceptor = new CoinkiteSigningRequestInterceptor(dateTime);
+        CoinkiteSigningRequestInterceptor coinkiteSigningRequestInterceptor = new CoinkiteSigningRequestInterceptor();
+        coinkiteSigningRequestInterceptor.setDateTime(dateTime);
 
         RequestTemplate template = new RequestTemplate()
                 .method("GET")

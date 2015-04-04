@@ -22,9 +22,8 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.auth;
+package com.coinkite;
 
-import com.coinkite.Constants;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.apache.commons.codec.binary.Hex;
@@ -51,18 +50,8 @@ import static java.util.Optional.ofNullable;
  */
 public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
 
-    private final LocalDateTime dateTime;
     Logger logger = LoggerFactory.getLogger(CoinkiteSigningRequestInterceptor.class);
-
-    public CoinkiteSigningRequestInterceptor() {
-
-        this(LocalDateTime.now(Clock.system(ZoneId.of("UTC"))));
-    }
-
-    public CoinkiteSigningRequestInterceptor(LocalDateTime dateTime) {
-
-        this.dateTime = dateTime;
-    }
+    private LocalDateTime dateTime;
 
     @Override
     public void apply(RequestTemplate template) {
@@ -75,7 +64,7 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
             Mac mac = Mac.getInstance(HMAC_SHA512_ALG);
             mac.init(signingKey);
 
-            String ts = dateTime.format(ISO_DATE_TIME);
+            String ts = getDateTime().format(ISO_DATE_TIME);
 
             byte[] bytes = mac.doFinal(getData(template.url(), ts));
             String encoded = Hex.encodeHexString(bytes);
@@ -105,5 +94,19 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
         Optional<String> secret = ofNullable(System.getenv(Constants.X_CK_SIGN));
 
         return secret.orElseThrow(() -> new RuntimeException("Coinkite secret was not passed in as a jvm arg or set on env."));
+    }
+
+    void setDateTime(LocalDateTime dateTime) {
+
+        this.dateTime = dateTime;
+    }
+
+    LocalDateTime getDateTime() {
+
+        if(dateTime == null) {
+            return LocalDateTime.now(Clock.system(ZoneId.of("UTC")));
+        }
+
+        return dateTime;
     }
 }

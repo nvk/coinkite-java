@@ -28,19 +28,21 @@ package com.coinkite.api.list;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class AmountSoFar {
+public class CurrencyAmount {
 
     @JsonProperty("currency")
     private String currency;
     @JsonProperty("decimal")
-    private Integer decimal;
+    private BigDecimal decimal;
     @JsonProperty("integer")
-    private Integer integer;
+    private BigInteger integer;
     @JsonProperty("integer_scale")
     private Integer integerScale;
     @JsonProperty("pretty")
@@ -50,123 +52,63 @@ public class AmountSoFar {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     *
-     * @return
-     * The currency
-     */
-    @JsonProperty("currency")
     public String getCurrency() {
+
         return currency;
     }
 
-    /**
-     *
-     * @param currency
-     * The currency
-     */
-    @JsonProperty("currency")
     public void setCurrency(String currency) {
+
         this.currency = currency;
     }
 
-    /**
-     *
-     * @return
-     * The decimal
-     */
-    @JsonProperty("decimal")
-    public Integer getDecimal() {
+    public BigDecimal getDecimal() {
+
         return decimal;
     }
 
-    /**
-     *
-     * @param decimal
-     * The decimal
-     */
-    @JsonProperty("decimal")
-    public void setDecimal(Integer decimal) {
+    public void setDecimal(BigDecimal decimal) {
+
         this.decimal = decimal;
     }
 
-    /**
-     *
-     * @return
-     * The integer
-     */
-    @JsonProperty("integer")
-    public Integer getInteger() {
+    public BigInteger getInteger() {
+
         return integer;
     }
 
-    /**
-     *
-     * @param integer
-     * The integer
-     */
-    @JsonProperty("integer")
-    public void setInteger(Integer integer) {
+    public void setInteger(BigInteger integer) {
+
         this.integer = integer;
     }
 
-    /**
-     *
-     * @return
-     * The integerScale
-     */
-    @JsonProperty("integer_scale")
     public Integer getIntegerScale() {
+
         return integerScale;
     }
 
-    /**
-     *
-     * @param integerScale
-     * The integer_scale
-     */
-    @JsonProperty("integer_scale")
     public void setIntegerScale(Integer integerScale) {
+
         this.integerScale = integerScale;
     }
 
-    /**
-     *
-     * @return
-     * The pretty
-     */
-    @JsonProperty("pretty")
     public String getPretty() {
+
         return pretty;
     }
 
-    /**
-     *
-     * @param pretty
-     * The pretty
-     */
-    @JsonProperty("pretty")
     public void setPretty(String pretty) {
+
         this.pretty = pretty;
     }
 
-    /**
-     *
-     * @return
-     * The string
-     */
-    @JsonProperty("string")
     public String getString() {
+
         return string;
     }
 
-    /**
-     *
-     * @param string
-     * The string
-     */
-    @JsonProperty("string")
     public void setString(String string) {
+
         this.string = string;
     }
 

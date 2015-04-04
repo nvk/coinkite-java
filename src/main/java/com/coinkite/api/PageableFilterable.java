@@ -22,30 +22,30 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.auth;
+package com.coinkite.api;
 
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
+public class PageableFilterable {
 
-import java.util.Optional;
+    Object filters;
+    PagingInfo paging;
 
-import static com.coinkite.Constants.X_CK_KEY;
-import static java.util.Optional.ofNullable;
+    public PagingInfo getPaging() {
 
-public class CoinkiteAPIKeyRequestInterceptor implements RequestInterceptor {
-
-
-    @Override
-    public void apply(RequestTemplate template) {
-
-        template.header(X_CK_KEY, getApiKey());
+        return paging;
     }
 
-    protected String getApiKey() {
+    public void setPaging(PagingInfo paging) {
 
-        Optional<String> key = ofNullable(System.getenv(X_CK_KEY));
-
-        return key.orElseThrow(() -> new RuntimeException("Coinkite key was not passed in as a jvm arg or set on env."));
+        this.paging = paging;
     }
 
+    public Object getFilters() {
+
+        return filters;
+    }
+
+    public void setFilters(Object filters) {
+
+        this.filters = filters;
+    }
 }

@@ -22,30 +22,77 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.auth;
+package com.coinkite.api;
 
-import com.coinkite.Constants;
-import com.coinkite.EnvironmentUtility;
-import org.junit.Before;
-import org.junit.Test;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import static org.junit.Assert.assertEquals;
+public class BaseFilterable {
 
-public class CoinkiteAPIKeyRequestInterceptorTest {
+    private String account;
+    private String period;
+    private String terminal;
+    @JsonProperty("coin_type")
+    private String coinType;
+    private int limit = 0;
+    private int offset;
 
-    private static final String API_KEY = "this-is-my-key";
+    public String getAccount() {
 
-    @Before
-    public void setup() throws Exception {
-
-        EnvironmentUtility.set(Constants.X_CK_KEY, API_KEY);
+        return account;
     }
 
-    @Test
-    public void doesAPISecretGetRead() {
+    public void setAccount(String account) {
 
-        String apiKey = new CoinkiteAPIKeyRequestInterceptor().getApiKey();
+        this.account = account;
+    }
 
-        assertEquals(API_KEY, apiKey);
+    public String getPeriod() {
+
+        return period;
+    }
+
+    public void setPeriod(String period) {
+
+        this.period = period;
+    }
+
+    public String getTerminal() {
+
+        return terminal;
+    }
+
+    public void setTerminal(String terminal) {
+
+        this.terminal = terminal;
+    }
+
+    public String getCoinType() {
+
+        return coinType;
+    }
+
+    public void setCoinType(String coinType) {
+
+        this.coinType = coinType;
+    }
+
+    public int getLimit() {
+
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+
+        this.limit = limit;
+    }
+
+    public int getOffset() {
+
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+
+        this.offset = offset;
     }
 }

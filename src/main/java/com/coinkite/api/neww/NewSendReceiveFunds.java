@@ -24,6 +24,8 @@
 
 package com.coinkite.api.neww;
 
+import feign.Headers;
+import feign.Param;
 import feign.RequestLine;
 
 /**
@@ -31,6 +33,9 @@ import feign.RequestLine;
  */
 public interface NewSendReceiveFunds {
 
+    @RequestLine("PUT /v1/new/receive?account={account}&show_memo={show_memo}&show_public={show_public}&amount={amount}&memo={memo}&show_username={show_username}")
+    ReceiveResponse newReceive(@Param(value = "account") String account, @Param(value = "amount")Integer amount);
     @RequestLine("PUT /v1/new/receive")
-    ReceiveResponse newReceive(ReceiveRequest receiveRequest);
+    @Headers(value = "Content-Type: application/json")
+    ReceiveResponse newReceiveJson(ReceiveRequest receiveRequest);
 }

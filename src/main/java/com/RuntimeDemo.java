@@ -24,15 +24,23 @@
 
 package com;
 
+import com.coinkite.api.list.ListRecords;
 import com.coinkite.api.my.UserLevelRecords;
-import com.coinkite.auth.CoinkiteAPIKeyRequestInterceptor;
-import com.coinkite.auth.CoinkiteSigningRequestInterceptor;
+import com.coinkite.api.neww.NewSendReceiveFunds;
+import com.coinkite.api.neww.ReceiveRequest;
+import com.coinkite.api.neww.ReceiveResponse;
+import com.coinkite.CoinkiteAPIKeyRequestInterceptor;
+import com.coinkite.CoinkiteSigningRequestInterceptor;
+import com.coinkite.CoinkiteErrorResponseDecoder;
 import feign.Feign;
 import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
 
 public class RuntimeDemo {
 
@@ -40,17 +48,64 @@ public class RuntimeDemo {
 
     public static void main(String[] args) {
 
-        UserLevelRecords records = Feign.builder()
+        RuntimeDemo demo = new RuntimeDemo();
+
+        demo.executeMyAccount();
+
+//        demo.executeNewReceive();
+
+        for(int i = 0; i < 4; i++) {
+            demo.executeListRecords();
+        }
+
+    }
+
+    private void executeMyAccount() {
+
+        UserLevelRecords records = buildFeignClient(UserLevelRecords.class);
+
+        System.out.println(records.self());
+    }
+
+    private void executeNewReceive() {
+
+        NewSendReceiveFunds sendReceiveFunds = buildFeignClient(NewSendReceiveFunds.class);
+
+        ReceiveRequest rr = new ReceiveRequest();
+        rr.setAccount("07160291A3-CCF2E5");
+        rr.setShowMemo(true);
+        rr.setAmount(new BigDecimal(500000));
+        rr.setMemo("memo from Demo");
+        rr.setShowUsername(false);
+
+        ReceiveResponse receiveResponse = sendReceiveFunds.newReceiveJson(rr);
+
+        System.out.println(receiveResponse);
+    }
+
+    private void executeListRecords() {
+
+        ListRecords listRecords = buildFeignClient(ListRecords.class);
+
+        System.out.println(listRecords.receives());
+    }
+
+    private <T> T buildFeignClient(Class<T> clazz) {
+
+//        try {
+//            Thread.sleep(TimeUnit.SECONDS.toMillis(2));
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        return Feign.builder()
                 .client(new OkHttpClient())
                 .decoder(new JacksonDecoder())
+                .encoder(new JacksonEncoder())
+                .errorDecoder(new CoinkiteErrorResponseDecoder())
                 .requestInterceptor(new CoinkiteAPIKeyRequestInterceptor())
                 .requestInterceptor(new CoinkiteSigningRequestInterceptor())
                 .logger(new Slf4jLogger())
                 .logLevel(feign.Logger.Level.FULL)
-                .target(UserLevelRecords.class, "https://api.coinkite.com");
-
-        System.out.println(records.self());
-
-
+                .target(clazz, "https://api.coinkite.com");
     }
 }

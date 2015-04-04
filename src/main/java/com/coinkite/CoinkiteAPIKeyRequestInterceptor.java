@@ -22,45 +22,30 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.neww;
+package com.coinkite;
 
-import com.coinkite.api.list.Receive;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ReceiveResponse {
+import java.util.Optional;
 
-    private ReceiveResponseArgs args;
-    private Receive result;
+import static com.coinkite.Constants.X_CK_KEY;
+import static java.util.Optional.ofNullable;
 
-    public ReceiveResponseArgs getArgs() {
+public class CoinkiteAPIKeyRequestInterceptor implements RequestInterceptor {
 
-        return args;
-    }
-
-    public void setArgs(ReceiveResponseArgs args) {
-
-        this.args = args;
-    }
-
-    public Receive getResult() {
-
-        return result;
-    }
-
-    public void setResult(Receive result) {
-
-        this.result = result;
-    }
 
     @Override
-    public String toString() {
+    public void apply(RequestTemplate template) {
 
-        return "ReceiveResponse{" +
-                "args=" + args +
-                ", result=" + result +
-                '}';
+        template.header(X_CK_KEY, getApiKey());
     }
+
+    protected String getApiKey() {
+
+        Optional<String> key = ofNullable(System.getenv(X_CK_KEY));
+
+        return key.orElseThrow(() -> new RuntimeException("Coinkite key was not passed in as a jvm arg or set on env."));
+    }
+
 }

@@ -1,0 +1,57 @@
+{
+  "api_key": {
+    "CK_refnum": "06F2F9EF93-797E69",
+    "CK_type": "CKApiKey",
+    "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+    "funds_limit": null,
+    "max_request_rate": 2,
+    "memo": "BT PlatformII",
+    "only_subaccounts": [
+      "08D5EED17F-BF374E",
+      "07160291A3-CCF2E5",
+      "AD12168C5C-BE3E1F"
+    ],
+    "permissions": [
+      "cosign",
+      "read",
+      "tor",
+      "acct",
+      "recv",
+      "events"
+    ],
+    "source_ip": null
+  },
+  "member_since": "2014-12-27Z",
+  "membership": "Starter member",
+  "nyms": [
+    "coin_craze"
+  ],
+  "supported_cct": {
+    "AUD": "Australian Dollar",
+    "BLK": "Blackcoin",
+    "BRL": "Brazilian Real",
+    "BTC": "Bitcoin",
+    "CAD": "Canadian Dollar",
+    "CHF": "Swiss Franc",
+    "CNY": "Yuan Renminbi",
+    "EUR": "Euro",
+    "GBP": "Pound Sterling",
+    "HKD": "Hong Kong Dollar",
+    "JPY": "Yen",
+    "KRW": "Won",
+    "LTC": "Litecoin",
+    "MXN": "Mexican Peso",
+    "MYR": "Malaysian Ringgit",
+    "NOK": "Norwegian Krone",
+    "NZD": "New Zealand Dollar",
+    "PLN": "Zloty",
+    "RUB": "Russian Ruble",
+    "SEK": "Swedish Krona",
+    "SGD": "Singapore Dollar",
+    "USD": "US Dollar",
+    "VUV": "Vatu",
+    "XTN": "Bitcoin Testnet",
+    "ZAR": "Rand"
+  },
+  "username": "coincrazejred"
+}

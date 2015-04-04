@@ -24,30 +24,35 @@
 
 package com.coinkite.api.neww;
 
-
-import com.coinkite.api.BaseFilterable;
+import com.coinkite.api.list.CurrencyAmount;
+import com.coinkite.api.my.AccountSummary;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.math.BigDecimal;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ReceiveRequest {
+public class ReceiveResponseArgs {
 
+    private AccountSummary account;
     private String memo;
-    private BigDecimal amount;
+    private CurrencyAmount amount;
     @JsonProperty("show_public")
-    private boolean showPublic;
+    private Boolean showPublic;
     @JsonProperty("show_memo")
-    private boolean showMemo;
+    private Boolean showMemo;
     @JsonProperty("show_username")
-    private boolean showUsername;
-    @NotNull @Size(min=1)
-    private String account;
+    private Boolean showUsername;
+
+    public AccountSummary getAccount() {
+
+        return account;
+    }
+
+    public void setAccount(AccountSummary account) {
+
+        this.account = account;
+    }
 
     public String getMemo() {
 
@@ -59,65 +64,56 @@ public class ReceiveRequest {
         this.memo = memo;
     }
 
-    public BigDecimal getAmount() {
+    public CurrencyAmount getAmount() {
 
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(CurrencyAmount amount) {
 
         this.amount = amount;
     }
 
-    public boolean isShowPublic() {
+    public Boolean isShowPublic() {
 
         return showPublic;
     }
 
-    public void setShowPublic(boolean showPublic) {
+    public void setShowPublic(Boolean showPublic) {
 
         this.showPublic = showPublic;
     }
 
-    public boolean isShowMemo() {
+    public Boolean isShowMemo() {
 
         return showMemo;
     }
 
-    public void setShowMemo(boolean showMemo) {
+    public void setShowMemo(Boolean showMemo) {
 
         this.showMemo = showMemo;
     }
 
-    public boolean isShowUsername() {
+    public Boolean isShowUsername() {
 
         return showUsername;
     }
 
-    public void setShowUsername(boolean showUsername) {
+    public void setShowUsername(Boolean showUsername) {
 
         this.showUsername = showUsername;
-    }
-
-    public String getAccount() {
-
-        return account;
-    }
-
-    public void setAccount(String account) {
-
-        this.account = account;
     }
 
     @Override
     public String toString() {
 
-        return memo != null ? "memo='" + memo + '\'' : "" +
+        return "ReceiveResponseArgs{" +
+                "account=" + account +
+                ", memo='" + memo + '\'' +
                 ", amount=" + amount +
                 ", showPublic=" + showPublic +
                 ", showMemo=" + showMemo +
                 ", showUsername=" + showUsername +
-                ", account='" + account + '\'' +
                 '}';
     }
 }
