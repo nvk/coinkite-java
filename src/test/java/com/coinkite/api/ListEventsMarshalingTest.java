@@ -22,10 +22,10 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.neww;
+package com.coinkite.api;
 
-import com.coinkite.api.list.CurrencyAmount;
-import com.coinkite.api.my.AccountSummary;
+import com.coinkite.api.list.CreditEvent;
+import com.coinkite.api.list.EventsResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -33,11 +33,11 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-public class ReceiveResponseArgsMarshalTest {
+public class ListEventsMarshalingTest {
 
     private ObjectMapper om;
 
@@ -51,21 +51,19 @@ public class ReceiveResponseArgsMarshalTest {
     public void canUnmarshalFromJson() throws IOException {
 
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("receiveResponse.json").getFile());
+        File file = new File(classLoader.getResource("listEvents.json").getFile());
 
-        ReceiveResponse rr = om.readValue(file, ReceiveResponse.class);
+        EventsResponse eventsResponse = om.readValue(file, EventsResponse.class);
 
-        AccountSummary account = rr.getArgs().getAccount();
-        assertEquals("std", account.getCKAcctType());
+        assertNotNull(eventsResponse);
 
-        CurrencyAmount amount = rr.getArgs().getAmount();
-        assertEquals("XTN", amount.getCurrency());
-
+        assertEquals(eventsResponse.getResults().get(2).getClass(), CreditEvent.class);
 
     }
 
     @Test
     public void canMarshalToJson() throws JsonProcessingException {
+
 
     }
 }

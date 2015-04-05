@@ -24,6 +24,7 @@
 
 package com.coinkite.api.list;
 
+import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
@@ -32,14 +33,10 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class Receive  {
+public class Receive extends BaseCoinkiteDomain {
 
-    @JsonProperty("CK_refnum")
-    private String CKRefnum;
     @JsonProperty("CK_req_type")
     private String CKReqType;
-    @JsonProperty("CK_type")
-    private String CKType;
     @JsonProperty("account")
     private String account;
     @JsonProperty("address")
@@ -68,334 +65,162 @@ public class Receive  {
     private Boolean showPublic;
     @JsonProperty("show_username")
     private Boolean showUsername;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     * @return The CKRefnum
-     */
-    @JsonProperty("CK_refnum")
-    public String getCKRefnum() {
-
-        return CKRefnum;
-    }
-
-    /**
-     * @param CKRefnum The CK_refnum
-     */
-    @JsonProperty("CK_refnum")
-    public void setCKRefnum(String CKRefnum) {
-
-        this.CKRefnum = CKRefnum;
-    }
-
-    /**
-     * @return The CKReqType
-     */
-    @JsonProperty("CK_req_type")
     public String getCKReqType() {
 
         return CKReqType;
     }
 
-    /**
-     * @param CKReqType The CK_req_type
-     */
-    @JsonProperty("CK_req_type")
     public void setCKReqType(String CKReqType) {
 
         this.CKReqType = CKReqType;
     }
 
-    /**
-     * @return The CKType
-     */
-    @JsonProperty("CK_type")
-    public String getCKType() {
-
-        return CKType;
-    }
-
-    /**
-     * @param CKType The CK_type
-     */
-    @JsonProperty("CK_type")
-    public void setCKType(String CKType) {
-
-        this.CKType = CKType;
-    }
-
-    /**
-     * @return The account
-     */
-    @JsonProperty("account")
     public String getAccount() {
 
         return account;
     }
 
-    /**
-     * @param account The account
-     */
-    @JsonProperty("account")
     public void setAccount(String account) {
 
         this.account = account;
     }
 
-    /**
-     * @return The address
-     */
-    @JsonProperty("address")
     public String getAddress() {
 
         return address;
     }
 
-    /**
-     * @param address The address
-     */
-    @JsonProperty("address")
     public void setAddress(String address) {
 
         this.address = address;
     }
 
-    /**
-     * @return The amount
-     */
-    @JsonProperty("amount")
     public Object getAmount() {
 
         return amount;
     }
 
-    /**
-     * @param amount The amount
-     */
-    @JsonProperty("amount")
     public void setAmount(Object amount) {
 
         this.amount = amount;
     }
 
-    /**
-     * @return The amountSoFar
-     */
-    @JsonProperty("amount_so_far")
     public CurrencyAmount getAmountSoFar() {
 
         return amountSoFar;
     }
 
-    /**
-     * @param amountSoFar The amount_so_far
-     */
-    @JsonProperty("amount_so_far")
     public void setAmountSoFar(CurrencyAmount amountSoFar) {
 
         this.amountSoFar = amountSoFar;
     }
 
-    /**
-     * @return The archivedAt
-     */
-    @JsonProperty("archived_at")
     public Object getArchivedAt() {
 
         return archivedAt;
     }
 
-    /**
-     * @param archivedAt The archived_at
-     */
-    @JsonProperty("archived_at")
     public void setArchivedAt(Object archivedAt) {
 
         this.archivedAt = archivedAt;
     }
 
-    /**
-     * @return The coin
-     */
-    @JsonProperty("coin")
     public Coin getCoin() {
 
         return coin;
     }
 
-    /**
-     * @param coin The coin
-     */
-    @JsonProperty("coin")
     public void setCoin(Coin coin) {
 
         this.coin = coin;
     }
 
-    /**
-     * @return The coinType
-     */
-    @JsonProperty("coin_type")
     public String getCoinType() {
 
         return coinType;
     }
 
-    /**
-     * @param coinType The coin_type
-     */
-    @JsonProperty("coin_type")
     public void setCoinType(String coinType) {
 
         this.coinType = coinType;
     }
 
-    /**
-     * @return The desc
-     */
-    @JsonProperty("desc")
     public String getDesc() {
 
         return desc;
     }
 
-    /**
-     * @param desc The desc
-     */
-    @JsonProperty("desc")
     public void setDesc(String desc) {
 
         this.desc = desc;
     }
 
-    /**
-     * @return The isCompleted
-     */
-    @JsonProperty("is_completed")
     public Boolean getIsCompleted() {
 
         return isCompleted;
     }
 
-    /**
-     * @param isCompleted The is_completed
-     */
-    @JsonProperty("is_completed")
     public void setIsCompleted(Boolean isCompleted) {
 
         this.isCompleted = isCompleted;
     }
 
-    /**
-     * @return The memo
-     */
-    @JsonProperty("memo")
     public String getMemo() {
 
         return memo;
     }
 
-    /**
-     * @param memo The memo
-     */
-    @JsonProperty("memo")
     public void setMemo(String memo) {
 
         this.memo = memo;
     }
 
-    /**
-     * @return The qrUrl
-     */
-    @JsonProperty("qr_url")
     public String getQrUrl() {
 
         return qrUrl;
     }
 
-    /**
-     * @param qrUrl The qr_url
-     */
-    @JsonProperty("qr_url")
     public void setQrUrl(String qrUrl) {
 
         this.qrUrl = qrUrl;
     }
 
-    /**
-     * @return The showMemo
-     */
-    @JsonProperty("show_memo")
     public Boolean getShowMemo() {
 
         return showMemo;
     }
 
-    /**
-     * @param showMemo The show_memo
-     */
-    @JsonProperty("show_memo")
     public void setShowMemo(Boolean showMemo) {
 
         this.showMemo = showMemo;
     }
 
-    /**
-     * @return The showPublic
-     */
-    @JsonProperty("show_public")
     public Boolean getShowPublic() {
 
         return showPublic;
     }
 
-    /**
-     * @param showPublic The show_public
-     */
-    @JsonProperty("show_public")
     public void setShowPublic(Boolean showPublic) {
 
         this.showPublic = showPublic;
     }
 
-    /**
-     * @return The showUsername
-     */
-    @JsonProperty("show_username")
     public Boolean getShowUsername() {
 
         return showUsername;
     }
 
-    /**
-     * @param showUsername The show_username
-     */
-    @JsonProperty("show_username")
     public void setShowUsername(Boolean showUsername) {
 
         this.showUsername = showUsername;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-
-        this.additionalProperties.put(name, value);
     }
 
     @Override
     public String toString() {
 
         return "Receive{" +
-                "CKRefnum='" + CKRefnum + '\'' +
                 ", CKReqType='" + CKReqType + '\'' +
-                ", CKType='" + CKType + '\'' +
                 ", account='" + account + '\'' +
                 ", address='" + address + '\'' +
                 ", amount=" + amount +
@@ -410,7 +235,6 @@ public class Receive  {
                 ", showMemo=" + showMemo +
                 ", showPublic=" + showPublic +
                 ", showUsername=" + showUsername +
-                ", additionalProperties=" + additionalProperties +
                 '}';
     }
 }

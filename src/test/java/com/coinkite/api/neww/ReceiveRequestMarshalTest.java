@@ -24,20 +24,16 @@
 
 package com.coinkite.api.neww;
 
-import com.coinkite.api.list.CurrencyAmount;
-import com.coinkite.api.my.AccountSummary;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
-public class ReceiveResponseArgsMarshalTest {
+public class ReceiveRequestMarshalTest {
 
     private ObjectMapper om;
 
@@ -48,24 +44,16 @@ public class ReceiveResponseArgsMarshalTest {
     }
 
     @Test
-    public void canUnmarshalFromJson() throws IOException {
-
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("receiveResponse.json").getFile());
-
-        ReceiveResponse rr = om.readValue(file, ReceiveResponse.class);
-
-        AccountSummary account = rr.getArgs().getAccount();
-        assertEquals("std", account.getCKAcctType());
-
-        CurrencyAmount amount = rr.getArgs().getAmount();
-        assertEquals("XTN", amount.getCurrency());
-
-
-    }
-
-    @Test
     public void canMarshalToJson() throws JsonProcessingException {
 
+        ReceiveRequest rr = new ReceiveRequest();
+        rr.setAccount("account");
+        rr.setAmount(new BigDecimal(500000));
+        rr.setMemo("this is a memo");
+        rr.setShowMemo(true);
+        rr.setShowPublic(true);
+        rr.setShowUsername(false);
+
+        assertEquals("{\"memo\":\"this is a memo\",\"amount\":500000,\"account\":\"account\",\"show_public\":true,\"show_memo\":true,\"show_username\":false}", om.writeValueAsString(rr));
     }
 }

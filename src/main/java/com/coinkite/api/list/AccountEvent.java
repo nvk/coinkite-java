@@ -24,24 +24,5 @@
 
 package com.coinkite.api.list;
 
-import feign.RequestLine;
-
-public interface ListRecords {
-
-    @RequestLine("GET /v1/list/activity")
-    ActivityResponse activity();
-
-    @RequestLine("GET /v1/list/credits")
-    CreditsResponse credits();
-
-    @RequestLine("GET /v1/list/events")
-    EventsResponse events();
-
-    @RequestLine("GET /v1/list/receives")
-    ListReceivesResponse receives();
-
-//    @RequestLine("GET /v1/list/receives")
-//    ListReceivesResponse receivesFiltered(Filterable filterable);
-
-
+public class AccountEvent extends Event {
 }

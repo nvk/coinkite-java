@@ -22,50 +22,30 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.neww;
+package com.coinkite.api.list;
 
-import com.coinkite.api.list.CurrencyAmount;
-import com.coinkite.api.my.AccountSummary;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
+import com.coinkite.api.PageableFilterable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.io.File;
-import java.io.IOException;
-import java.math.BigDecimal;
+import javax.annotation.Generated;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Generated("org.jsonschema2pojo")
+public class EventsResponse extends PageableFilterable {
 
-public class ReceiveResponseArgsMarshalTest {
+    private List<Event> results = new ArrayList<>();
 
-    private ObjectMapper om;
+    public List<Event> getResults() {
 
-    @Before
-    public void setup() throws JsonProcessingException {
-
-        om = new ObjectMapper();
+        return results;
     }
 
-    @Test
-    public void canUnmarshalFromJson() throws IOException {
+    public void setResults(List<Event> results) {
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("receiveResponse.json").getFile());
-
-        ReceiveResponse rr = om.readValue(file, ReceiveResponse.class);
-
-        AccountSummary account = rr.getArgs().getAccount();
-        assertEquals("std", account.getCKAcctType());
-
-        CurrencyAmount amount = rr.getArgs().getAmount();
-        assertEquals("XTN", amount.getCurrency());
-
-
-    }
-
-    @Test
-    public void canMarshalToJson() throws JsonProcessingException {
-
+        this.results = results;
     }
 }

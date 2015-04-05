@@ -33,8 +33,11 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = CreditEvent.class, name = "Credit")})
-public class Event extends BaseCoinkiteDomain {
+        @JsonSubTypes.Type(value = CreditEvent.class, name = "Credit"),
+        @JsonSubTypes.Type(value = DebitEvent.class, name = "Debit"),
+        @JsonSubTypes.Type(value = AccountEvent.class, name = "Created"),
+        @JsonSubTypes.Type(value = AccountEvent.class, name = "Closed")})
+public abstract class Event extends BaseCoinkiteDomain {
 
     @JsonProperty("CK_event_type")
     private String CKEventType;

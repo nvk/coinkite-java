@@ -25,14 +25,19 @@
 package com.coinkite.api;
 
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.coinkite.api.list.Activity;
+import com.coinkite.api.list.Event;
+import com.coinkite.api.list.Receive;
+import com.fasterxml.jackson.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
+//@JsonTypeInfo(use= JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="CK_type")
+//@JsonSubTypes({
+//        @JsonSubTypes.Type(value = Activity.class, name = "CKActivityLog"),
+//        @JsonSubTypes.Type(value = Receive.class, name = "CKReqReceive"),
+//        @JsonSubTypes.Type(value = Event.class, name = "CKEvent")})
 public abstract class BaseCoinkiteDomain {
 
     @JsonProperty("CK_refnum")
