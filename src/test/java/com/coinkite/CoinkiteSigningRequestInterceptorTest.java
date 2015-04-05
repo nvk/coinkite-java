@@ -25,9 +25,6 @@
 package com.coinkite;
 
 
-import com.coinkite.CoinkiteSigningRequestInterceptor;
-import com.coinkite.Constants;
-import com.coinkite.EnvironmentUtility;
 import feign.RequestTemplate;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +45,7 @@ public class CoinkiteSigningRequestInterceptorTest {
     @Before
     public void setup() throws Exception {
 
-        EnvironmentUtility.set(Constants.X_CK_SIGN, API_SECRET);
+        EnvironmentTestUtility.set(Constants.X_CK_SIGN, API_SECRET);
     }
 
     @Test

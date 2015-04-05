@@ -22,28 +22,21 @@
  *  SOFTWARE.
  */
 
-package com.coinkite;
+package com.coinkite.api.pubnub;
 
-import org.junit.Before;
-import org.junit.Test;
+import feign.RequestLine;
 
-import static org.junit.Assert.assertEquals;
+/**
+ * <a href="https://docs.coinkite.com/api/new-update.html">https://docs.coinkite.com/api/new-update.html</a>
+ */
+public interface RealTimeEvents {
 
-public class CoinkiteAPIKeyRequestInterceptorTest {
+    @RequestLine("PUT /v1/pubnub/enable")
+    EventEnableResponse enableFirst();
 
-    private static final String API_KEY = "this-is-my-key";
+    @RequestLine("GET /v1/pubnub/enable")
+    EventEnableResponse enable();
 
-    @Before
-    public void setup() throws Exception {
-
-        EnvironmentTestUtility.set(Constants.X_CK_KEY, API_KEY);
-    }
-
-    @Test
-    public void doesAPISecretGetRead() {
-
-        String apiKey = new CoinkiteAPIKeyRequestInterceptor().getApiKey();
-
-        assertEquals(API_KEY, apiKey);
-    }
+    @RequestLine("PUT /v1/pubnub/send")
+    EventSendResponse send(Object body);
 }

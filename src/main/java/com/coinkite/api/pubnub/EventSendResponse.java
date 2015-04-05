@@ -22,28 +22,37 @@
  *  SOFTWARE.
  */
 
-package com.coinkite;
+package com.coinkite.api.pubnub;
 
-import org.junit.Before;
-import org.junit.Test;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import static org.junit.Assert.assertEquals;
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+public class EventSendResponse {
 
-public class CoinkiteAPIKeyRequestInterceptorTest {
+    @JsonProperty("enabled_keys")
+    private int enabledKeys;
+    private String sent;
 
-    private static final String API_KEY = "this-is-my-key";
+    public int getEnabledKeys() {
 
-    @Before
-    public void setup() throws Exception {
-
-        EnvironmentTestUtility.set(Constants.X_CK_KEY, API_KEY);
+        return enabledKeys;
     }
 
-    @Test
-    public void doesAPISecretGetRead() {
+    public void setEnabledKeys(int enabledKeys) {
 
-        String apiKey = new CoinkiteAPIKeyRequestInterceptor().getApiKey();
+        this.enabledKeys = enabledKeys;
+    }
 
-        assertEquals(API_KEY, apiKey);
+    public String getSent() {
+
+        return sent;
+    }
+
+    public void setSent(String sent) {
+
+        this.sent = sent;
     }
 }

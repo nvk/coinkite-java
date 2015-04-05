@@ -22,35 +22,50 @@
  *  SOFTWARE.
  */
 
-package com.coinkite;
+package com.coinkite.api.pubnub;
 
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class EnvironmentUtility {
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+public class EventEnableResponse {
 
-    public static void set(String key, String value) throws Exception {
+    private String channel;
+    @JsonProperty("auth_key")
+    private String authKey;
+    @JsonProperty("subscribe_key")
+    private String subscribeKey;
 
-        Map<String, String> map = new HashMap<>();
-        map.put(key, value);
-        set(map);
+
+    public String getChannel() {
+
+        return channel;
     }
 
-    public static void set(Map<String, String> newenv) throws Exception {
-        Class[] classes = Collections.class.getDeclaredClasses();
-        Map<String, String> env = System.getenv();
-        for(Class cl : classes) {
-            if("java.util.Collections$UnmodifiableMap".equals(cl.getName())) {
-                Field field = cl.getDeclaredField("m");
-                field.setAccessible(true);
-                Object obj = field.get(env);
-                Map<String, String> map = (Map<String, String>) obj;
-                map.clear();
-                map.putAll(newenv);
-            }
-        }
+    public void setChannel(String channel) {
+
+        this.channel = channel;
     }
 
+    public String getAuthKey() {
+
+        return authKey;
+    }
+
+    public void setAuthKey(String authKey) {
+
+        this.authKey = authKey;
+    }
+
+    public String getSubscribeKey() {
+
+        return subscribeKey;
+    }
+
+    public void setSubscribeKey(String subscribeKey) {
+
+        this.subscribeKey = subscribeKey;
+    }
 }

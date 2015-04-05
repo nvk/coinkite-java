@@ -22,28 +22,25 @@
  *  SOFTWARE.
  */
 
-package com.coinkite;
+package com.coinkite.api.pubnub;
 
-import org.junit.Before;
-import org.junit.Test;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import static org.junit.Assert.assertEquals;
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+public class PubnubEventResponse {
 
-public class CoinkiteAPIKeyRequestInterceptorTest {
+    @JsonProperty("event_code")
+    private EventCode eventCode;
+    private String desc;
+    private String activity;
+    @JsonProperty("ip_address")
+    private String ipAddress;
+    @JsonProperty("detail_url")
+    private String detailUrl;
+    private EventRefnums refnums;
 
-    private static final String API_KEY = "this-is-my-key";
 
-    @Before
-    public void setup() throws Exception {
-
-        EnvironmentTestUtility.set(Constants.X_CK_KEY, API_KEY);
-    }
-
-    @Test
-    public void doesAPISecretGetRead() {
-
-        String apiKey = new CoinkiteAPIKeyRequestInterceptor().getApiKey();
-
-        assertEquals(API_KEY, apiKey);
-    }
 }
