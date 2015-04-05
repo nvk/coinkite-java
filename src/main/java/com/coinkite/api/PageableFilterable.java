@@ -26,7 +26,7 @@ package com.coinkite.api;
 
 public class PageableFilterable {
 
-    Object filters;
+    BaseFilterable filters;
     PagingInfo paging;
 
     public PagingInfo getPaging() {
@@ -39,12 +39,12 @@ public class PageableFilterable {
         this.paging = paging;
     }
 
-    public Object getFilters() {
+    public BaseFilterable getFilters() {
 
         return filters;
     }
 
-    public void setFilters(Object filters) {
+    public void setFilters(BaseFilterable filters) {
 
         this.filters = filters;
     }
