@@ -33,56 +33,128 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+public class Block extends BaseCoinkiteDomain {
 
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("CK_type")
+    private String CKType;
     @JsonProperty("coin_type")
     private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
+    @JsonProperty("fully_confirmed")
+    private Boolean fullyConfirmed;
+    @JsonProperty("hash")
+    private String hash;
+    @JsonProperty("height")
+    private Integer height;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public String getAddress() {
-
-        return address;
+    /**
+     *
+     * @return
+     * The CKType
+     */
+    @JsonProperty("CK_type")
+    public String getCKType() {
+        return CKType;
     }
 
-    public void setAddress(String address) {
-
-        this.address = address;
+    /**
+     *
+     * @param CKType
+     * The CK_type
+     */
+    @JsonProperty("CK_type")
+    public void setCKType(String CKType) {
+        this.CKType = CKType;
     }
 
+    /**
+     *
+     * @return
+     * The coinType
+     */
+    @JsonProperty("coin_type")
     public String getCoinType() {
-
         return coinType;
     }
 
+    /**
+     *
+     * @param coinType
+     * The coin_type
+     */
+    @JsonProperty("coin_type")
     public void setCoinType(String coinType) {
-
         this.coinType = coinType;
     }
 
-    public String getSubkey() {
-
-        return subkey;
+    /**
+     *
+     * @return
+     * The fullyConfirmed
+     */
+    @JsonProperty("fully_confirmed")
+    public Boolean getFullyConfirmed() {
+        return fullyConfirmed;
     }
 
-    public void setSubkey(String subkey) {
+    /**
+     *
+     * @param fullyConfirmed
+     * The fully_confirmed
+     */
+    @JsonProperty("fully_confirmed")
+    public void setFullyConfirmed(Boolean fullyConfirmed) {
+        this.fullyConfirmed = fullyConfirmed;
+    }
 
-        this.subkey = subkey;
+    /**
+     *
+     * @return
+     * The hash
+     */
+    @JsonProperty("hash")
+    public String getHash() {
+        return hash;
+    }
+
+    /**
+     *
+     * @param hash
+     * The hash
+     */
+    @JsonProperty("hash")
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
+    /**
+     *
+     * @return
+     * The height
+     */
+    @JsonProperty("height")
+    public Integer getHeight() {
+        return height;
+    }
+
+    /**
+     *
+     * @param height
+     * The height
+     */
+    @JsonProperty("height")
+    public void setHeight(Integer height) {
+        this.height = height;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-
         return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-
         this.additionalProperties.put(name, value);
     }
 

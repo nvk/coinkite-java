@@ -28,6 +28,12 @@ import feign.RequestLine;
 
 public interface ListRecords {
 
+    @RequestLine("GET /v1/list/activity")
+    ActivityResponse activity();
+
+    @RequestLine("GET /v1/list/credits")
+    CreditsResponse credits();
+
     @RequestLine("GET /v1/list/receives")
     ListReceivesResponse receives();
 

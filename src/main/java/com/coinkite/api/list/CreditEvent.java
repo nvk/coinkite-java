@@ -24,66 +24,24 @@
 
 package com.coinkite.api.list;
 
-import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.annotation.Generated;
-import java.util.HashMap;
-import java.util.Map;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+public class CreditEvent extends Event {
 
-    @JsonProperty("address")
-    private String address;
-    @JsonProperty("coin_type")
-    private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    @JsonProperty("credit_txo")
+    private CreditTransaction creditTransaction;
 
-    public String getAddress() {
+    public CreditTransaction getCreditTransaction() {
 
-        return address;
+        return creditTransaction;
     }
 
-    public void setAddress(String address) {
+    public void setCreditTransaction(CreditTransaction creditTransaction) {
 
-        this.address = address;
+        this.creditTransaction = creditTransaction;
     }
-
-    public String getCoinType() {
-
-        return coinType;
-    }
-
-    public void setCoinType(String coinType) {
-
-        this.coinType = coinType;
-    }
-
-    public String getSubkey() {
-
-        return subkey;
-    }
-
-    public void setSubkey(String subkey) {
-
-        this.subkey = subkey;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-
-        this.additionalProperties.put(name, value);
-    }
-
 }

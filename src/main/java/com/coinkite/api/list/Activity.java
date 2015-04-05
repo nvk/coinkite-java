@@ -25,65 +25,76 @@
 package com.coinkite.api.list;
 
 import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
-import java.util.HashMap;
-import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+public class Activity extends BaseCoinkiteDomain {
 
-    @JsonProperty("address")
-    private String address;
-    @JsonProperty("coin_type")
-    private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    @JsonProperty("api_key")
+    private String apiKey;
+    @JsonProperty("created_at")
+    private String createdAt;
+    @JsonProperty("ip_address")
+    private String ipAddress;
+    @JsonProperty("request")
+    private Request request;
+    @JsonProperty("summary")
+    private String summary;
 
-    public String getAddress() {
+    public String getApiKey() {
 
-        return address;
+        return apiKey;
     }
 
-    public void setAddress(String address) {
+    public void setApiKey(String apiKey) {
 
-        this.address = address;
+        this.apiKey = apiKey;
     }
 
-    public String getCoinType() {
+    public String getCreatedAt() {
 
-        return coinType;
+        return createdAt;
     }
 
-    public void setCoinType(String coinType) {
+    public void setCreatedAt(String createdAt) {
 
-        this.coinType = coinType;
+        this.createdAt = createdAt;
     }
 
-    public String getSubkey() {
+    public String getIpAddress() {
 
-        return subkey;
+        return ipAddress;
     }
 
-    public void setSubkey(String subkey) {
+    public void setIpAddress(String ipAddress) {
 
-        this.subkey = subkey;
+        this.ipAddress = ipAddress;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
+    public Request getRequest() {
 
-        return this.additionalProperties;
+        return request;
     }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
+    public void setRequest(Request request) {
 
-        this.additionalProperties.put(name, value);
+        this.request = request;
+    }
+
+    public String getSummary() {
+
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+
+        this.summary = summary;
     }
 
 }

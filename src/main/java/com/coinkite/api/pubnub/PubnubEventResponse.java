@@ -42,5 +42,63 @@ public class PubnubEventResponse {
     private String detailUrl;
     private EventRefnums refnums;
 
+    public EventCode getEventCode() {
 
+        return eventCode;
+    }
+
+    public void setEventCode(EventCode eventCode) {
+
+        this.eventCode = eventCode;
+    }
+
+    public String getDesc() {
+
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+
+        this.desc = desc;
+    }
+
+    public String getActivity() {
+
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+
+        this.activity = activity;
+    }
+
+    public String getIpAddress() {
+
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+
+        this.ipAddress = ipAddress;
+    }
+
+    public String getDetailUrl() {
+
+        return detailUrl;
+    }
+
+    public void setDetailUrl(String detailUrl) {
+
+        this.detailUrl = detailUrl;
+    }
+
+    public EventRefnums getRefnums() {
+
+        return refnums;
+    }
+
+    public void setRefnums(EventRefnums refnums) {
+
+        this.refnums = refnums;
+    }
 }

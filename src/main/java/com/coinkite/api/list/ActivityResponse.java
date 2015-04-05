@@ -24,66 +24,26 @@
 
 package com.coinkite.api.list;
 
-import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
+import com.coinkite.api.PageableFilterable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.annotation.Generated;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+public class ActivityResponse extends PageableFilterable {
 
-    @JsonProperty("address")
-    private String address;
-    @JsonProperty("coin_type")
-    private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private List<Activity> results = new ArrayList<>();
 
-    public String getAddress() {
+    public List<Activity> getResults() {
 
-        return address;
+        return results;
     }
 
-    public void setAddress(String address) {
+    public void setResults(List<Activity> results) {
 
-        this.address = address;
+        this.results = results;
     }
-
-    public String getCoinType() {
-
-        return coinType;
-    }
-
-    public void setCoinType(String coinType) {
-
-        this.coinType = coinType;
-    }
-
-    public String getSubkey() {
-
-        return subkey;
-    }
-
-    public void setSubkey(String subkey) {
-
-        this.subkey = subkey;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-
-        this.additionalProperties.put(name, value);
-    }
-
 }

@@ -22,56 +22,44 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api;
 
-import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
 
-import javax.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.HashMap;
 import java.util.Map;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+public abstract class BaseCoinkiteDomain {
 
-    @JsonProperty("address")
-    private String address;
-    @JsonProperty("coin_type")
-    private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
+    @JsonProperty("CK_refnum")
+    private String CKRefnum;
+    @JsonProperty("CK_type")
+    private String CKType;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
-    public String getAddress() {
+    public String getCKRefnum() {
 
-        return address;
+        return CKRefnum;
     }
 
-    public void setAddress(String address) {
+    public void setCKRefnum(String CKRefnum) {
 
-        this.address = address;
+        this.CKRefnum = CKRefnum;
     }
 
-    public String getCoinType() {
+    public String getCKType() {
 
-        return coinType;
+        return CKType;
     }
 
-    public void setCoinType(String coinType) {
+    public void setCKType(String CKType) {
 
-        this.coinType = coinType;
-    }
-
-    public String getSubkey() {
-
-        return subkey;
-    }
-
-    public void setSubkey(String subkey) {
-
-        this.subkey = subkey;
+        this.CKType = CKType;
     }
 
     @JsonAnyGetter
@@ -85,5 +73,4 @@ public class Coin extends BaseCoinkiteDomain {
 
         this.additionalProperties.put(name, value);
     }
-
 }

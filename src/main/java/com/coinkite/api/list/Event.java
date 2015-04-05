@@ -27,31 +27,44 @@ package com.coinkite.api.list;
 import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.*;
 
-import javax.annotation.Generated;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = CreditEvent.class, name = "Credit")})
+public class Event extends BaseCoinkiteDomain {
 
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("CK_event_type")
+    private String CKEventType;
+    @JsonProperty("amount")
+    private Integer amount;
     @JsonProperty("coin_type")
     private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    @JsonProperty("confirmed_at")
+    private Date confirmedAt;
+    @JsonProperty("type")
+    private String type;
 
-    public String getAddress() {
+    public String getCKEventType() {
 
-        return address;
+        return CKEventType;
     }
 
-    public void setAddress(String address) {
+    public void setCKEventType(String CKEventType) {
 
-        this.address = address;
+        this.CKEventType = CKEventType;
+    }
+
+    public Integer getAmount() {
+
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+
+        this.amount = amount;
     }
 
     public String getCoinType() {
@@ -64,26 +77,23 @@ public class Coin extends BaseCoinkiteDomain {
         this.coinType = coinType;
     }
 
-    public String getSubkey() {
+    public Date getConfirmedAt() {
 
-        return subkey;
+        return confirmedAt;
     }
 
-    public void setSubkey(String subkey) {
+    public void setConfirmedAt(Date confirmedAt) {
 
-        this.subkey = subkey;
+        this.confirmedAt = confirmedAt;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
+    public String getType() {
 
-        return this.additionalProperties;
+        return type;
     }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
+    public void setType(String type) {
 
-        this.additionalProperties.put(name, value);
+        this.type = type;
     }
-
 }

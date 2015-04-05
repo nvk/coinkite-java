@@ -28,13 +28,15 @@ import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 
+import java.math.BigDecimal;
+
 /**
  * <a href="https://docs.coinkite.com/api/new-update.html">https://docs.coinkite.com/api/new-update.html</a>
  */
 public interface NewSendReceiveFunds {
 
     @RequestLine("PUT /v1/new/receive?account={account}&show_memo={show_memo}&show_public={show_public}&amount={amount}&memo={memo}&show_username={show_username}")
-    ReceiveResponse newReceive(@Param(value = "account") String account, @Param(value = "amount")Integer amount);
+    ReceiveResponse newReceive(@Param(value = "account") String account, @Param(value = "amount")BigDecimal amount);
     @RequestLine("PUT /v1/new/receive")
     @Headers(value = "Content-Type: application/json")
     ReceiveResponse newReceiveJson(ReceiveRequest receiveRequest);
