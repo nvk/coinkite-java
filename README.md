@@ -1,4 +1,4 @@
-[ ![Codeship Status for jarheadjred/coinkite-java](https://codeship.io/projects/20fafae0-b87c-0132-2c2e-668bc7234501/status)](https://codeship.io/projects/71411)
+[ ![Codeship Status for blocktrustorg/coinkite-java](https://codeship.io/projects/da3341f0-bdc4-0132-6764-62522b742a1f/status)](https://codeship.io/projects/72608)
 
 
 # coinkite-java
