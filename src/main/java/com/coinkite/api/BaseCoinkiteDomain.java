@@ -25,9 +25,6 @@
 package com.coinkite.api;
 
 
-import com.coinkite.api.list.Activity;
-import com.coinkite.api.list.Event;
-import com.coinkite.api.list.Receive;
 import com.fasterxml.jackson.annotation.*;
 
 import java.util.HashMap;

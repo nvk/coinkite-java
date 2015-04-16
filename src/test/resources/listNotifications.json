@@ -1,0 +1,1018 @@
+{
+  "filters": {},
+  "paging": {
+    "count_here": 25,
+    "limit": 25,
+    "offset": 0,
+    "total_count": 74
+  },
+  "results": [
+    {
+      "CK_refnum": "A6DAE08B3B-0D3975",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "FF7449705A-B0BBF3",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T04:06:36.922922Z",
+        "event": {
+          "CK_event_type": "R",
+          "CK_refnum": "B9794432ED-36E534",
+          "CK_type": "CKEvent",
+          "amount": 0.092,
+          "coin_type": "XTN",
+          "confirmed_at": "2015-04-05T04:06:37.681686Z",
+          "credit_txo": {
+            "amount": 0.092,
+            "block": {
+              "CK_refnum": "209019FCC5-CEBD87",
+              "CK_type": "CKBlockInfo",
+              "coin_type": "XTN",
+              "fully_confirmed": true,
+              "hash": "0000000040eceb1aa51bb150cad50d52655ad004c3bbc4cd20bd24f0b044ca8e",
+              "height": 329940
+            },
+            "coin": {
+              "CK_refnum": "B7BE6412DE-035182",
+              "CK_type": "CKMagicCoin",
+              "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+              "coin_type": "XTN",
+              "subkey": "root/1/0"
+            },
+            "confirmations": 154,
+            "is_coinbase": false,
+            "is_failed": false,
+            "is_immature_coin": false,
+            "is_spent": false,
+            "txo": "2c36a4727ba8000e2b75dc416300d8badc768f16ba6970dea28a0f22dc9a1192:0"
+          },
+          "type": "Credit"
+        },
+        "request": {
+          "CK_refnum": "FD2C5BADA3-55A3A2",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0.092,
+            "integer": 9200000,
+            "integer_scale": 8,
+            "pretty": "❀ 0.092 XTN",
+            "string": "0.092"
+          },
+          "archived_at": "2015-03-12T02:03:51.071531Z",
+          "coin": {
+            "CK_refnum": "B7BE6412DE-035182",
+            "CK_type": "CKMagicCoin",
+            "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+            "coin_type": "XTN",
+            "subkey": "root/1/0"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": "Quick deposit address",
+          "qr_url": "bitcoin:n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "show_memo": false,
+          "show_public": true,
+          "show_username": false
+        },
+        "summary": "Credit completely confirmed: ❀ 0.092 XTN"
+      },
+      "delivery": "api",
+      "desc": "Credit received and fully confirmed",
+      "event_code": "credit_full"
+    },
+    {
+      "CK_refnum": "A61AD0072B-6EF4BD",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "B0F8E9B969-61D7A7",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:56:09.951068Z",
+        "summary": "Session logout due to: idle"
+      },
+      "delivery": "internal",
+      "desc": "User has logged out",
+      "event_code": "user_logout"
+    },
+    {
+      "CK_refnum": "3A8B9AC35C-EC6DBB",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "B0F8E9B969-61D7A7",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:56:09.951068Z",
+        "summary": "Session logout due to: idle"
+      },
+      "delivery": "api",
+      "desc": "User has logged out",
+      "event_code": "user_logout"
+    },
+    {
+      "CK_refnum": "84863F3145-C7723A",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "19CF53F41D-F4F852",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:26:30.815293Z",
+        "event": {
+          "CK_event_type": "R",
+          "CK_refnum": "B9794432ED-36E534",
+          "CK_type": "CKEvent",
+          "amount": 0.092,
+          "coin_type": "XTN",
+          "confirmed_at": "2015-04-05T04:06:37.681686Z",
+          "credit_txo": {
+            "amount": 0.092,
+            "block": {
+              "CK_refnum": "209019FCC5-CEBD87",
+              "CK_type": "CKBlockInfo",
+              "coin_type": "XTN",
+              "fully_confirmed": true,
+              "hash": "0000000040eceb1aa51bb150cad50d52655ad004c3bbc4cd20bd24f0b044ca8e",
+              "height": 329940
+            },
+            "coin": {
+              "CK_refnum": "B7BE6412DE-035182",
+              "CK_type": "CKMagicCoin",
+              "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+              "coin_type": "XTN",
+              "subkey": "root/1/0"
+            },
+            "confirmations": 154,
+            "is_coinbase": false,
+            "is_failed": false,
+            "is_immature_coin": false,
+            "is_spent": false,
+            "txo": "2c36a4727ba8000e2b75dc416300d8badc768f16ba6970dea28a0f22dc9a1192:0"
+          },
+          "type": "Credit"
+        },
+        "request": {
+          "CK_refnum": "FD2C5BADA3-55A3A2",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0.092,
+            "integer": 9200000,
+            "integer_scale": 8,
+            "pretty": "❀ 0.092 XTN",
+            "string": "0.092"
+          },
+          "archived_at": "2015-03-12T02:03:51.071531Z",
+          "coin": {
+            "CK_refnum": "B7BE6412DE-035182",
+            "CK_type": "CKMagicCoin",
+            "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+            "coin_type": "XTN",
+            "subkey": "root/1/0"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": "Quick deposit address",
+          "qr_url": "bitcoin:n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "show_memo": false,
+          "show_public": true,
+          "show_username": false
+        },
+        "summary": "Credit received (first confirmation): ❀ 0.092 XTN"
+      },
+      "delivery": "internal",
+      "desc": "Credit received (first confirmation)",
+      "event_code": "credit_1"
+    },
+    {
+      "CK_refnum": "57BEF00AB8-1831AC",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "19CF53F41D-F4F852",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:26:30.815293Z",
+        "event": {
+          "CK_event_type": "R",
+          "CK_refnum": "B9794432ED-36E534",
+          "CK_type": "CKEvent",
+          "amount": 0.092,
+          "coin_type": "XTN",
+          "confirmed_at": "2015-04-05T04:06:37.681686Z",
+          "credit_txo": {
+            "amount": 0.092,
+            "block": {
+              "CK_refnum": "209019FCC5-CEBD87",
+              "CK_type": "CKBlockInfo",
+              "coin_type": "XTN",
+              "fully_confirmed": true,
+              "hash": "0000000040eceb1aa51bb150cad50d52655ad004c3bbc4cd20bd24f0b044ca8e",
+              "height": 329940
+            },
+            "coin": {
+              "CK_refnum": "B7BE6412DE-035182",
+              "CK_type": "CKMagicCoin",
+              "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+              "coin_type": "XTN",
+              "subkey": "root/1/0"
+            },
+            "confirmations": 154,
+            "is_coinbase": false,
+            "is_failed": false,
+            "is_immature_coin": false,
+            "is_spent": false,
+            "txo": "2c36a4727ba8000e2b75dc416300d8badc768f16ba6970dea28a0f22dc9a1192:0"
+          },
+          "type": "Credit"
+        },
+        "request": {
+          "CK_refnum": "FD2C5BADA3-55A3A2",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0.092,
+            "integer": 9200000,
+            "integer_scale": 8,
+            "pretty": "❀ 0.092 XTN",
+            "string": "0.092"
+          },
+          "archived_at": "2015-03-12T02:03:51.071531Z",
+          "coin": {
+            "CK_refnum": "B7BE6412DE-035182",
+            "CK_type": "CKMagicCoin",
+            "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+            "coin_type": "XTN",
+            "subkey": "root/1/0"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": "Quick deposit address",
+          "qr_url": "bitcoin:n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "show_memo": false,
+          "show_public": true,
+          "show_username": false
+        },
+        "summary": "Credit received (first confirmation): ❀ 0.092 XTN"
+      },
+      "delivery": "api",
+      "desc": "Credit received (first confirmation)",
+      "event_code": "credit_1"
+    },
+    {
+      "CK_refnum": "30701FE185-314119",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "6A2BB2A766-9E9FBD",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:24:45.443975Z",
+        "event": {
+          "CK_event_type": "R",
+          "CK_refnum": "B9794432ED-36E534",
+          "CK_type": "CKEvent",
+          "amount": 0.092,
+          "coin_type": "XTN",
+          "confirmed_at": "2015-04-05T04:06:37.681686Z",
+          "credit_txo": {
+            "amount": 0.092,
+            "block": {
+              "CK_refnum": "209019FCC5-CEBD87",
+              "CK_type": "CKBlockInfo",
+              "coin_type": "XTN",
+              "fully_confirmed": true,
+              "hash": "0000000040eceb1aa51bb150cad50d52655ad004c3bbc4cd20bd24f0b044ca8e",
+              "height": 329940
+            },
+            "coin": {
+              "CK_refnum": "B7BE6412DE-035182",
+              "CK_type": "CKMagicCoin",
+              "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+              "coin_type": "XTN",
+              "subkey": "root/1/0"
+            },
+            "confirmations": 154,
+            "is_coinbase": false,
+            "is_failed": false,
+            "is_immature_coin": false,
+            "is_spent": false,
+            "txo": "2c36a4727ba8000e2b75dc416300d8badc768f16ba6970dea28a0f22dc9a1192:0"
+          },
+          "type": "Credit"
+        },
+        "request": {
+          "CK_refnum": "FD2C5BADA3-55A3A2",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0.092,
+            "integer": 9200000,
+            "integer_scale": 8,
+            "pretty": "❀ 0.092 XTN",
+            "string": "0.092"
+          },
+          "archived_at": "2015-03-12T02:03:51.071531Z",
+          "coin": {
+            "CK_refnum": "B7BE6412DE-035182",
+            "CK_type": "CKMagicCoin",
+            "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+            "coin_type": "XTN",
+            "subkey": "root/1/0"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": "Quick deposit address",
+          "qr_url": "bitcoin:n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "show_memo": false,
+          "show_public": true,
+          "show_username": false
+        },
+        "summary": "Credit received (UNCONFIRMED): ❀ 0.092 XTN"
+      },
+      "delivery": "online",
+      "desc": "Credit received (ZERO confirmations-may still be reversed)",
+      "event_code": "credit_0"
+    },
+    {
+      "CK_refnum": "123983ECBB-7128B3",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "6A2BB2A766-9E9FBD",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:24:45.443975Z",
+        "event": {
+          "CK_event_type": "R",
+          "CK_refnum": "B9794432ED-36E534",
+          "CK_type": "CKEvent",
+          "amount": 0.092,
+          "coin_type": "XTN",
+          "confirmed_at": "2015-04-05T04:06:37.681686Z",
+          "credit_txo": {
+            "amount": 0.092,
+            "block": {
+              "CK_refnum": "209019FCC5-CEBD87",
+              "CK_type": "CKBlockInfo",
+              "coin_type": "XTN",
+              "fully_confirmed": true,
+              "hash": "0000000040eceb1aa51bb150cad50d52655ad004c3bbc4cd20bd24f0b044ca8e",
+              "height": 329940
+            },
+            "coin": {
+              "CK_refnum": "B7BE6412DE-035182",
+              "CK_type": "CKMagicCoin",
+              "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+              "coin_type": "XTN",
+              "subkey": "root/1/0"
+            },
+            "confirmations": 154,
+            "is_coinbase": false,
+            "is_failed": false,
+            "is_immature_coin": false,
+            "is_spent": false,
+            "txo": "2c36a4727ba8000e2b75dc416300d8badc768f16ba6970dea28a0f22dc9a1192:0"
+          },
+          "type": "Credit"
+        },
+        "request": {
+          "CK_refnum": "FD2C5BADA3-55A3A2",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0.092,
+            "integer": 9200000,
+            "integer_scale": 8,
+            "pretty": "❀ 0.092 XTN",
+            "string": "0.092"
+          },
+          "archived_at": "2015-03-12T02:03:51.071531Z",
+          "coin": {
+            "CK_refnum": "B7BE6412DE-035182",
+            "CK_type": "CKMagicCoin",
+            "address": "n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+            "coin_type": "XTN",
+            "subkey": "root/1/0"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": "Quick deposit address",
+          "qr_url": "bitcoin:n3NqsfHhaisktg8QyeweYUCwuHDZbddfF6",
+          "show_memo": false,
+          "show_public": true,
+          "show_username": false
+        },
+        "summary": "Credit received (UNCONFIRMED): ❀ 0.092 XTN"
+      },
+      "delivery": "api",
+      "desc": "Credit received (ZERO confirmations-may still be reversed)",
+      "event_code": "credit_0"
+    },
+    {
+      "CK_refnum": "2CD80AEAA4-630BF1",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "75F349A8D2-9B2D0A",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-05T02:23:05.152587Z",
+        "ip_address": "2601:2:5680:2e9:4c54:6504:c4d9:3a52",
+        "is_good_login": true,
+        "summary": "Successful login"
+      },
+      "delivery": "api",
+      "desc": "Successful login",
+      "event_code": "good_login"
+    },
+    {
+      "CK_refnum": "1396E44907-7479A7",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "1042F824BC-1DAC16",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-04T22:59:34.551154Z",
+        "detail_url": "https://api.coinkite.com/detail-view/06F2F9EF93-797E69",
+        "ip_address": "24.118.83.49",
+        "is_failed_login": true,
+        "summary": "API Security: Timestamp (2015-04-04T22:58:08.947) is same as last request (2015-04-04T22:58:08.947000)"
+      },
+      "delivery": "api",
+      "desc": "Failed login attempt",
+      "event_code": "bad_login"
+    },
+    {
+      "CK_refnum": "A4B835E02A-8DCB1C",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "C31CED1537-DC8F41",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-04-04T22:43:42.594979Z",
+        "detail_url": "https://api.coinkite.com/detail-view/06F2F9EF93-797E69",
+        "ip_address": "24.118.83.49",
+        "is_failed_login": true,
+        "summary": "API Security: Timestamp (2015-04-04T22:43:37.09) is same as last request (2015-04-04T22:43:37.090000)"
+      },
+      "delivery": "api",
+      "desc": "Failed login attempt",
+      "event_code": "bad_login"
+    },
+    {
+      "CK_refnum": "5D2CC0DAF0-096269",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "69C1A8F336-E84A55",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-03T22:04:03.146762Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "1F41F1DD72-B1B9D1",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "n133YbY8Krnkcgciiz7pnT15McEUkbVY4o",
+          "amount": {
+            "currency": "XTN",
+            "decimal": 500000,
+            "integer": 50000000000000,
+            "integer_scale": 8,
+            "pretty": "❀ 500,000.0 XTN",
+            "string": "500000"
+          },
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "99DB5A84A9-EFC6D7",
+            "CK_type": "CKMagicCoin",
+            "address": "n133YbY8Krnkcgciiz7pnT15McEUkbVY4o",
+            "coin_type": "XTN",
+            "subkey": "root/1/11"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": "memo from Demo",
+          "qr_url": "bitcoin:n133YbY8Krnkcgciiz7pnT15McEUkbVY4o?amount=500000.0&message=memo+from+Demo",
+          "show_memo": true,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request for ❀ 500,000.0 XTN"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "A26AD2FDFB-740E21",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "C5FF3CA246-868AE8",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T01:09:02.606034Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "B496DD2A19-6FE703",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "mxkp9oQ7qV8Sqb6im1UonBzrC54EnsNtyW",
+          "amount": {
+            "currency": "XTN",
+            "decimal": 500000,
+            "integer": 50000000000000,
+            "integer_scale": 8,
+            "pretty": "❀ 500,000.0 XTN",
+            "string": "500000"
+          },
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "6D33CA0364-1914F4",
+            "CK_type": "CKMagicCoin",
+            "address": "mxkp9oQ7qV8Sqb6im1UonBzrC54EnsNtyW",
+            "coin_type": "XTN",
+            "subkey": "root/1/10"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:mxkp9oQ7qV8Sqb6im1UonBzrC54EnsNtyW?amount=500000.0",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request for ❀ 500,000.0 XTN"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "9D39B484B9-4C6899",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "7A216B26F2-F2B5A8",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T01:04:22.676781Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "ECF2D6F417-495FF1",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "mrMGPm5DNDXKZB9FqPvn65FMDP2h7mhpMT",
+          "amount": {
+            "currency": "XTN",
+            "decimal": 500000,
+            "integer": 50000000000000,
+            "integer_scale": 8,
+            "pretty": "❀ 500,000.0 XTN",
+            "string": "500000"
+          },
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "526883D82E-09727E",
+            "CK_type": "CKMagicCoin",
+            "address": "mrMGPm5DNDXKZB9FqPvn65FMDP2h7mhpMT",
+            "coin_type": "XTN",
+            "subkey": "root/1/9"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:mrMGPm5DNDXKZB9FqPvn65FMDP2h7mhpMT?amount=500000.0",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request for ❀ 500,000.0 XTN"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "F85E3BEE2B-28D178",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "E87E1E8881-A99323",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T00:58:38.408277Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "E033BF33E0-90656F",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "mn5VVLHeE1R9Fu5D4xjWQVuNiEiBiy36dx",
+          "amount": {
+            "currency": "XTN",
+            "decimal": 500000,
+            "integer": 50000000000000,
+            "integer_scale": 8,
+            "pretty": "❀ 500,000.0 XTN",
+            "string": "500000"
+          },
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "0139AD9C04-8A3812",
+            "CK_type": "CKMagicCoin",
+            "address": "mn5VVLHeE1R9Fu5D4xjWQVuNiEiBiy36dx",
+            "coin_type": "XTN",
+            "subkey": "root/1/8"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:mn5VVLHeE1R9Fu5D4xjWQVuNiEiBiy36dx?amount=500000.0",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request for ❀ 500,000.0 XTN"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "C21DFFD464-F3F300",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "6B3D784C06-1820B3",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T00:56:24.665897Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "F4A0FC9233-EA53BD",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "mhvpPXuEVCCpCvv8fJyzkZwARSTvQkv9uQ",
+          "amount": {
+            "currency": "XTN",
+            "decimal": 500000,
+            "integer": 50000000000000,
+            "integer_scale": 8,
+            "pretty": "❀ 500,000.0 XTN",
+            "string": "500000"
+          },
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "BF77BB566F-303F0C",
+            "CK_type": "CKMagicCoin",
+            "address": "mhvpPXuEVCCpCvv8fJyzkZwARSTvQkv9uQ",
+            "coin_type": "XTN",
+            "subkey": "root/1/7"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:mhvpPXuEVCCpCvv8fJyzkZwARSTvQkv9uQ?amount=500000.0",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request for ❀ 500,000.0 XTN"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "04917A1111-03D7FF",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "681CD16AB0-04968C",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T00:50:50.529498Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "F5371CB201-E02497",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "mv7PD1kpveQ4j5uwrucvubzBYqV5axEgZ9",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "64669C9E07-16DA95",
+            "CK_type": "CKMagicCoin",
+            "address": "mv7PD1kpveQ4j5uwrucvubzBYqV5axEgZ9",
+            "coin_type": "XTN",
+            "subkey": "root/1/6"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:mv7PD1kpveQ4j5uwrucvubzBYqV5axEgZ9",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "F5B68F0A39-70ED8A",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "165FDA349D-16C580",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T00:49:28.103164Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "1AE994914E-C050DD",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "munEQpfD3etpf2SAVH67YuBMhGtifcs4cH",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "4F63D2AC5F-B9CC50",
+            "CK_type": "CKMagicCoin",
+            "address": "munEQpfD3etpf2SAVH67YuBMhGtifcs4cH",
+            "coin_type": "XTN",
+            "subkey": "root/1/5"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:munEQpfD3etpf2SAVH67YuBMhGtifcs4cH",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "82D786C033-72486A",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "51513D6ED7-40EE43",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T00:48:07.304323Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "9927D6A27C-2A202E",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "msTkJHEKggwRYzrBk2ovfUaSzDoiV7y6qA",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "083E46F99D-D021A5",
+            "CK_type": "CKMagicCoin",
+            "address": "msTkJHEKggwRYzrBk2ovfUaSzDoiV7y6qA",
+            "coin_type": "XTN",
+            "subkey": "root/1/4"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:msTkJHEKggwRYzrBk2ovfUaSzDoiV7y6qA",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "B9748F26F8-7AB600",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "6F18B925DB-20D9B4",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-04-02T00:43:22.207584Z",
+        "ip_address": "24.118.83.49",
+        "request": {
+          "CK_refnum": "A0107157DD-6E3E69",
+          "CK_req_type": "recv",
+          "CK_type": "CKReqReceive",
+          "account": "07160291A3-CCF2E5",
+          "address": "mt8eLmYLCTkG9uwmWH93A5U1m18dSYEn3X",
+          "amount": null,
+          "amount_so_far": {
+            "currency": "XTN",
+            "decimal": 0,
+            "integer": 0,
+            "integer_scale": 8,
+            "pretty": "❀ 0.0 XTN",
+            "string": "0"
+          },
+          "archived_at": null,
+          "coin": {
+            "CK_refnum": "51F9720CE1-0F5958",
+            "CK_type": "CKMagicCoin",
+            "address": "mt8eLmYLCTkG9uwmWH93A5U1m18dSYEn3X",
+            "coin_type": "XTN",
+            "subkey": "root/1/3"
+          },
+          "coin_type": "XTN",
+          "desc": "Receive Funds",
+          "is_completed": false,
+          "memo": null,
+          "qr_url": "bitcoin:mt8eLmYLCTkG9uwmWH93A5U1m18dSYEn3X",
+          "show_memo": false,
+          "show_public": false,
+          "show_username": false
+        },
+        "summary": "Created payment request"
+      },
+      "delivery": "api",
+      "desc": "New receive request created",
+      "event_code": "recv_setup"
+    },
+    {
+      "CK_refnum": "667B8EB749-2E8A95",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "30288AC476-AD2598",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-03-29T23:51:51.458671Z",
+        "summary": "Session logout due to: idle"
+      },
+      "delivery": "internal",
+      "desc": "User has logged out",
+      "event_code": "user_logout"
+    },
+    {
+      "CK_refnum": "D0C670E1C7-5FFB61",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "30288AC476-AD2598",
+        "CK_type": "CKActivityLog",
+        "created_at": "2015-03-29T23:51:51.458671Z",
+        "summary": "Session logout due to: idle"
+      },
+      "delivery": "api",
+      "desc": "User has logged out",
+      "event_code": "user_logout"
+    },
+    {
+      "CK_refnum": "20133E9763-5AFA54",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "49C0B947BF-E25E28",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-03-29T23:21:08.434921Z",
+        "ip_address": "2601:2:5680:2e9:dcd9:acb1:c56c:6b0e",
+        "summary": "Edited API Key (Kd79f9d7b-xxx-xxxx): perms [read, recv, events] → [tor, cosign, read, acct, recv, events], 3 subaccounts"
+      },
+      "delivery": "online",
+      "desc": "API key added/changed",
+      "event_code": "apikey_change"
+    },
+    {
+      "CK_refnum": "1053546CF6-5F007B",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "49C0B947BF-E25E28",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-03-29T23:21:08.434921Z",
+        "ip_address": "2601:2:5680:2e9:dcd9:acb1:c56c:6b0e",
+        "summary": "Edited API Key (Kd79f9d7b-xxx-xxxx): perms [read, recv, events] → [tor, cosign, read, acct, recv, events], 3 subaccounts"
+      },
+      "delivery": "email",
+      "desc": "API key added/changed",
+      "event_code": "apikey_change"
+    },
+    {
+      "CK_refnum": "9D5A46DFFD-A9DE0E",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "49C0B947BF-E25E28",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-03-29T23:21:08.434921Z",
+        "ip_address": "2601:2:5680:2e9:dcd9:acb1:c56c:6b0e",
+        "summary": "Edited API Key (Kd79f9d7b-xxx-xxxx): perms [read, recv, events] → [tor, cosign, read, acct, recv, events], 3 subaccounts"
+      },
+      "delivery": "sms",
+      "desc": "API key added/changed",
+      "event_code": "apikey_change"
+    },
+    {
+      "CK_refnum": "3E68A4B95F-89026A",
+      "CK_type": "CKNotification",
+      "activity": {
+        "CK_refnum": "49C0B947BF-E25E28",
+        "CK_type": "CKActivityLog",
+        "api_key": "Kd79f9d7b-2dc545bb-8db57718b614e053",
+        "created_at": "2015-03-29T23:21:08.434921Z",
+        "ip_address": "2601:2:5680:2e9:dcd9:acb1:c56c:6b0e",
+        "summary": "Edited API Key (Kd79f9d7b-xxx-xxxx): perms [read, recv, events] → [tor, cosign, read, acct, recv, events], 3 subaccounts"
+      },
+      "delivery": "api",
+      "desc": "API key added/changed",
+      "event_code": "apikey_change"
+    }
+  ]
+}

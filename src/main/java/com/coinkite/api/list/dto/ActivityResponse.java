@@ -22,48 +22,31 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api;
+package com.coinkite.api.list.dto;
 
-import com.coinkite.api.list.CreditEvent;
-import com.coinkite.api.list.EventsResponse;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
+import com.coinkite.api.PageableFilterable;
+import com.coinkite.api.list.model.Activity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.io.File;
-import java.io.IOException;
+import javax.annotation.Generated;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Generated("org.jsonschema2pojo")
+public class ActivityResponse extends PageableFilterable {
 
-public class ListEventsMarshalingTest {
+    private List<Activity> results = new ArrayList<>();
 
-    private ObjectMapper om;
+    public List<Activity> getResults() {
 
-    @Before
-    public void setup() throws JsonProcessingException {
-
-        om = new ObjectMapper();
+        return results;
     }
 
-    @Test
-    public void canUnmarshalFromJson() throws IOException {
+    public void setResults(List<Activity> results) {
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("listEvents.json").getFile());
-
-        EventsResponse eventsResponse = om.readValue(file, EventsResponse.class);
-
-        assertNotNull(eventsResponse);
-
-        assertEquals(eventsResponse.getResults().get(2).getClass(), CreditEvent.class);
-
-    }
-
-    @Test
-    public void canMarshalToJson() throws JsonProcessingException {
-
-
+        this.results = results;
     }
 }

@@ -22,15 +22,17 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api.list.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
 import java.math.BigDecimal;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 public class CreditTransaction extends BaseCoinkiteDomain {
@@ -53,6 +55,7 @@ public class CreditTransaction extends BaseCoinkiteDomain {
     private Boolean isSpent;
     @JsonProperty("txo")
     private String txo;
+
 
     public BigDecimal getAmount() {
 

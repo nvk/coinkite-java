@@ -22,67 +22,104 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api.list.model;
 
-import com.coinkite.api.BaseCoinkiteDomain;
+
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class Coin extends BaseCoinkiteDomain {
+public class CurrencyAmount {
 
-    @JsonProperty("address")
-    private String address;
-    @JsonProperty("coin_type")
-    private String coinType;
-    @JsonProperty("subkey")
-    private String subkey;
+    @JsonProperty("currency")
+    private String currency;
+    @JsonProperty("decimal")
+    private BigDecimal decimal;
+    @JsonProperty("integer")
+    private BigInteger integer;
+    @JsonProperty("integer_scale")
+    private Integer integerScale;
+    @JsonProperty("pretty")
+    private String pretty;
+    @JsonProperty("string")
+    private String string;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public String getAddress() {
+    public String getCurrency() {
 
-        return address;
+        return currency;
     }
 
-    public void setAddress(String address) {
+    public void setCurrency(String currency) {
 
-        this.address = address;
+        this.currency = currency;
     }
 
-    public String getCoinType() {
+    public BigDecimal getDecimal() {
 
-        return coinType;
+        return decimal;
     }
 
-    public void setCoinType(String coinType) {
+    public void setDecimal(BigDecimal decimal) {
 
-        this.coinType = coinType;
+        this.decimal = decimal;
     }
 
-    public String getSubkey() {
+    public BigInteger getInteger() {
 
-        return subkey;
+        return integer;
     }
 
-    public void setSubkey(String subkey) {
+    public void setInteger(BigInteger integer) {
 
-        this.subkey = subkey;
+        this.integer = integer;
+    }
+
+    public Integer getIntegerScale() {
+
+        return integerScale;
+    }
+
+    public void setIntegerScale(Integer integerScale) {
+
+        this.integerScale = integerScale;
+    }
+
+    public String getPretty() {
+
+        return pretty;
+    }
+
+    public void setPretty(String pretty) {
+
+        this.pretty = pretty;
+    }
+
+    public String getString() {
+
+        return string;
+    }
+
+    public void setString(String string) {
+
+        this.string = string;
     }
 
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
-
         return this.additionalProperties;
     }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
-
         this.additionalProperties.put(name, value);
     }
 

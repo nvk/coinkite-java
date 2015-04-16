@@ -22,52 +22,37 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api.list.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.*;
 
-import java.util.Date;
+import javax.annotation.Generated;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = CreditEvent.class, name = "Credit"),
-        @JsonSubTypes.Type(value = DebitEvent.class, name = "Debit"),
-        @JsonSubTypes.Type(value = AccountEvent.class, name = "Created"),
-        @JsonSubTypes.Type(value = AccountEvent.class, name = "Closed")})
-public abstract class Event extends BaseCoinkiteDomain {
+@Generated("org.jsonschema2pojo")
+public class Coin extends BaseCoinkiteDomain {
 
-    @JsonProperty("CK_event_type")
-    private String CKEventType;
-    @JsonProperty("amount")
-    private Integer amount;
+    @JsonProperty("address")
+    private String address;
     @JsonProperty("coin_type")
     private String coinType;
-    @JsonProperty("confirmed_at")
-    private Date confirmedAt;
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("subkey")
+    private String subkey;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public String getCKEventType() {
+    public String getAddress() {
 
-        return CKEventType;
+        return address;
     }
 
-    public void setCKEventType(String CKEventType) {
+    public void setAddress(String address) {
 
-        this.CKEventType = CKEventType;
-    }
-
-    public Integer getAmount() {
-
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-
-        this.amount = amount;
+        this.address = address;
     }
 
     public String getCoinType() {
@@ -80,23 +65,26 @@ public abstract class Event extends BaseCoinkiteDomain {
         this.coinType = coinType;
     }
 
-    public Date getConfirmedAt() {
+    public String getSubkey() {
 
-        return confirmedAt;
+        return subkey;
     }
 
-    public void setConfirmedAt(Date confirmedAt) {
+    public void setSubkey(String subkey) {
 
-        this.confirmedAt = confirmedAt;
+        this.subkey = subkey;
     }
 
-    public String getType() {
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
 
-        return type;
+        return this.additionalProperties;
     }
 
-    public void setType(String type) {
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
 
-        this.type = type;
+        this.additionalProperties.put(name, value);
     }
+
 }

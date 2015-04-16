@@ -24,6 +24,7 @@
 
 package com.coinkite.api.list;
 
+import com.coinkite.api.list.dto.*;
 import feign.RequestLine;
 
 public interface ListRecords {
@@ -34,14 +35,49 @@ public interface ListRecords {
     @RequestLine("GET /v1/list/credits")
     CreditsResponse credits();
 
+    @RequestLine("GET /v1/list/debits")
+    DebitsResponse debits();
+
     @RequestLine("GET /v1/list/events")
     EventsResponse events();
+
+// TODO
+//    @RequestLine("GET /v1/list/notifications")
+//    NotificationResponse notifications();
+
+// TODO
+//    @RequestLine("GET /v1/list/requests")
+//    ListRequestsResponse requests();
 
     @RequestLine("GET /v1/list/receives")
     ListReceivesResponse receives();
 
+// TODO
 //    @RequestLine("GET /v1/list/receives")
 //    ListReceivesResponse receivesFiltered(Filterable filterable);
 
+// TODO
+//    @RequestLine("GET /v1/list/sweeps")
+//    ListSweepsResponse sweeps();
+
+// TODO
+//    @RequestLine("GET /v1/list/watching")
+//    ListSendsResponse watching();
+
+// TODO
+//    @RequestLine("GET /v1/list/sends")
+//    ListSendsResponse sends();
+
+// TODO
+//    @RequestLine("GET /v1/list/unauth_sends")
+//    ListSendsResponse unathenticatedSends();
+
+// TODO
+//    @RequestLine("GET /v1/list/need_sigs")
+//    ListSendsResponse needsSigs();
+
+// TODO
+//    @RequestLine("GET /v1/list/transfers")
+//    ListTransfersResponse transfers();
 
 }

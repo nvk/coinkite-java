@@ -24,7 +24,7 @@
 
 package com.coinkite.api.neww;
 
-import com.coinkite.api.list.Receive;
+import com.coinkite.api.list.model.Receive;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 

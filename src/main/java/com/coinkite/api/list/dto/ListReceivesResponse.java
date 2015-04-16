@@ -22,7 +22,41 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api.list.dto;
 
-public class DebitEvent extends Event {
+
+import com.coinkite.api.PageableFilterable;
+import com.coinkite.api.list.model.Receive;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.annotation.Generated;
+import java.util.ArrayList;
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Generated("org.jsonschema2pojo")
+public class ListReceivesResponse extends PageableFilterable {
+
+    List<Receive> results = new ArrayList<>();
+
+    public List<Receive> getResults() {
+
+        return results;
+    }
+
+    public void setResults(List<Receive> results) {
+
+        this.results = results;
+    }
+
+    @Override
+    public String toString() {
+
+        return "ListReceivesResponse{" +
+                "paging=" + getPaging() +
+                ", results=" + results +
+                '}';
+    }
 }

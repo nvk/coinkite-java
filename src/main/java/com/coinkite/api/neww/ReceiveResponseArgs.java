@@ -24,7 +24,7 @@
 
 package com.coinkite.api.neww;
 
-import com.coinkite.api.list.CurrencyAmount;
+import com.coinkite.api.list.model.CurrencyAmount;
 import com.coinkite.api.my.AccountSummary;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

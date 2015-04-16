@@ -22,7 +22,31 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api.list.dto;
 
-public class AccountEvent extends Event {
+import com.coinkite.api.PageableFilterable;
+import com.coinkite.api.list.model.Event;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.annotation.Generated;
+import java.util.ArrayList;
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Generated("org.jsonschema2pojo")
+public class EventsResponse extends PageableFilterable {
+
+    private List<Event> results = new ArrayList<>();
+
+    public List<Event> getResults() {
+
+        return results;
+    }
+
+    public void setResults(List<Event> results) {
+
+        this.results = results;
+    }
 }

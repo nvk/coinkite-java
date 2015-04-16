@@ -59,6 +59,7 @@ public class CoinkiteErrorResponseDecoder implements ErrorDecoder {
             if(response.status() == 400) throw new IllegalArgumentException(restError.getMessage());
 
             if(response.status() == 401) throw new SecurityException(restError.getMessage());
+
         }
 
         return defaultEncoder.decode(methodKey, response);

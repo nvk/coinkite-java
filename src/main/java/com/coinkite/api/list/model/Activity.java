@@ -22,7 +22,7 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list;
+package com.coinkite.api.list.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -30,22 +30,25 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
+import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 public class Activity extends BaseCoinkiteDomain {
 
-    @JsonProperty("api_key")
-    private String apiKey;
-    @JsonProperty("created_at")
-    private String createdAt;
-    @JsonProperty("ip_address")
-    private String ipAddress;
-    @JsonProperty("request")
-    private Request request;
     @JsonProperty("summary")
     private String summary;
+    @JsonProperty("created_at")
+    private Date createdAt;
+    @JsonProperty("ip_address")
+    private String ipAddress;
+
+
+    @JsonProperty("api_key")
+    private String apiKey;
+    @JsonProperty("request")
+    private Request request;
 
     public String getApiKey() {
 
@@ -57,12 +60,12 @@ public class Activity extends BaseCoinkiteDomain {
         this.apiKey = apiKey;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
 
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Date createdAt) {
 
         this.createdAt = createdAt;
     }
