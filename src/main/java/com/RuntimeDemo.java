@@ -32,6 +32,7 @@ import com.coinkite.api.neww.ReceiveResponse;
 import com.coinkite.CoinkiteAPIKeyRequestInterceptor;
 import com.coinkite.CoinkiteSigningRequestInterceptor;
 import com.coinkite.CoinkiteErrorResponseDecoder;
+import com.coinkite.config.ObjectMapperFactory;
 import feign.Feign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
@@ -99,8 +100,8 @@ public class RuntimeDemo {
 //        }
         return Feign.builder()
                 .client(new OkHttpClient())
-                .decoder(new JacksonDecoder())
-                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder(ObjectMapperFactory.createModules()))
+                .encoder(new JacksonEncoder(ObjectMapperFactory.createModules()))
                 .errorDecoder(new CoinkiteErrorResponseDecoder())
                 .requestInterceptor(new CoinkiteAPIKeyRequestInterceptor())
                 .requestInterceptor(new CoinkiteSigningRequestInterceptor())

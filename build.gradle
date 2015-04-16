@@ -8,6 +8,9 @@ repositories {
 }
 
 dependencies {
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.5.1'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.5.1'
+
     compile 'com.netflix.feign:feign-jackson:8.1.0'
     compile 'com.netflix.feign:feign-okhttp:8.1.0'
     compile 'com.netflix.feign:feign-slf4j:8.1.0'

@@ -26,6 +26,7 @@ package com.coinkite;
 
 
 import com.coinkite.api.RestError;
+import com.coinkite.config.ObjectMapperFactory;
 import feign.Response;
 import feign.RetryableException;
 import feign.codec.ErrorDecoder;
@@ -41,7 +42,7 @@ public class CoinkiteErrorResponseDecoder implements ErrorDecoder {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private ErrorDecoder defaultEncoder = new ErrorDecoder.Default();
-    private JacksonDecoder decoder = new JacksonDecoder();
+    private JacksonDecoder decoder = new JacksonDecoder(ObjectMapperFactory.createModules());
 
     @Override
     public Exception decode(String methodKey, Response response) {
