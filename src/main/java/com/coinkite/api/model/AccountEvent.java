@@ -22,29 +22,16 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class DebitEvent extends Event {
+public class AccountEvent extends Event {
 
-    @JsonProperty("spends_txo") // TODO: may need to be modified to introduce DebitTransaction
-    private CreditTransaction debitTransaction;
-
-    public CreditTransaction getDebitTransaction() {
-
-        return debitTransaction;
-    }
-
-    public void setDebitTransaction(CreditTransaction debitTransaction) {
-
-        this.debitTransaction = debitTransaction;
-    }
 }

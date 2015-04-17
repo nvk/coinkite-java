@@ -24,6 +24,7 @@
 
 package com;
 
+import com.coinkite.api.detail.dto.ObjectDetailsResponse;
 import com.coinkite.api.list.ListRecords;
 import com.coinkite.api.my.UserLevelRecords;
 import com.coinkite.api.neww.NewSendReceiveFunds;
@@ -33,6 +34,7 @@ import com.coinkite.CoinkiteAPIKeyRequestInterceptor;
 import com.coinkite.CoinkiteSigningRequestInterceptor;
 import com.coinkite.CoinkiteErrorResponseDecoder;
 import com.coinkite.config.ObjectMapperFactory;
+import com.coinkite.service.CoinkiteDetailsService;
 import feign.Feign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
@@ -49,16 +51,19 @@ public class RuntimeDemo {
 
     public static void main(String[] args) {
 
-        RuntimeDemo demo = new RuntimeDemo();
+//        RuntimeDemo demo = new RuntimeDemo();
 
-        demo.executeMyAccount();
+//        demo.executeMyAccount();
 
 //        demo.executeNewReceive();
 
-        for(int i = 0; i < 4; i++) {
-            demo.executeListRecords();
-        }
+//        for(int i = 0; i < 4; i++) {
+//            demo.executeListRecords();
+//        }
 
+        ObjectDetailsResponse objectDetailsResponse = CoinkiteDetailsService.INSTANCE.lookupDetails("B9794432ED-36E534");
+
+        System.out.println(objectDetailsResponse);
     }
 
     private void executeMyAccount() {

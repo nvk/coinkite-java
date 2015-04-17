@@ -22,52 +22,35 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
-import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = CreditEvent.class, name = "Credit"),
-        @JsonSubTypes.Type(value = DebitEvent.class, name = "Debit"),
-        @JsonSubTypes.Type(value = AccountEvent.class, name = "Created"),
-        @JsonSubTypes.Type(value = AccountEvent.class, name = "Closed")})
 @Generated("org.jsonschema2pojo")
-public abstract class Event extends BaseCoinkiteDomain {
+public class Coin extends BaseCoinkiteDomain {
 
-    @JsonProperty("CK_event_type")
-    private String CKEventType;
-    @JsonProperty("amount")
-    private Integer amount;
+    @JsonProperty("address")
+    private String address;
     @JsonProperty("coin_type")
     private String coinType;
-    @JsonProperty("confirmed_at")
-    private Date confirmedAt;
+    @JsonProperty("subkey")
+    private String subkey;
 
-    public String getCKEventType() {
+    public String getAddress() {
 
-        return CKEventType;
+        return address;
     }
 
-    public void setCKEventType(String CKEventType) {
+    public void setAddress(String address) {
 
-        this.CKEventType = CKEventType;
-    }
-
-    public Integer getAmount() {
-
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-
-        this.amount = amount;
+        this.address = address;
     }
 
     public String getCoinType() {
@@ -80,13 +63,14 @@ public abstract class Event extends BaseCoinkiteDomain {
         this.coinType = coinType;
     }
 
-    public Date getConfirmedAt() {
+    public String getSubkey() {
 
-        return (Date) confirmedAt.clone();
+        return subkey;
     }
 
-    public void setConfirmedAt(Date confirmedAt) {
+    public void setSubkey(String subkey) {
 
-        this.confirmedAt = confirmedAt == null ? null : (Date) confirmedAt.clone();
+        this.subkey = subkey;
     }
+
 }

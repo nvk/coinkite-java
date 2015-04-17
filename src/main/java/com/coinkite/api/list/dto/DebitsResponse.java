@@ -25,6 +25,7 @@
 package com.coinkite.api.list.dto;
 
 import com.coinkite.api.PageableFilterable;
+import com.coinkite.api.model.DebitEvent;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -37,14 +38,14 @@ import java.util.List;
 @Generated("org.jsonschema2pojo")
 public class DebitsResponse extends PageableFilterable {
 
-    private List<DebitsResponse> results = new ArrayList<>();
+    private List<DebitEvent> results = new ArrayList<>();
 
-    public List<DebitsResponse> getResults() {
+    public List<DebitEvent> getResults() {
 
         return results;
     }
 
-    public void setResults(List<DebitsResponse> results) {
+    public void setResults(List<DebitEvent> results) {
 
         this.results = results;
     }

@@ -22,31 +22,33 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.dto;
+package com.coinkite.config;
 
-import com.coinkite.api.PageableFilterable;
-import com.coinkite.api.model.CreditEvent;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.coinkite.CoinkiteAPIKeyRequestInterceptor;
+import com.coinkite.CoinkiteErrorResponseDecoder;
+import com.coinkite.CoinkiteSigningRequestInterceptor;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import feign.Feign;
+import feign.Logger;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
+import feign.okhttp.OkHttpClient;
+import feign.slf4j.Slf4jLogger;
 
-import javax.annotation.Generated;
-import java.util.ArrayList;
-import java.util.List;
+public class ApiCallerFactory {
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class CreditsResponse extends PageableFilterable {
+    public static <T> T create(Class<T> clazz) {
 
-    private List<CreditEvent> results = new ArrayList<>();
-
-    public List<CreditEvent> getResults() {
-
-        return results;
-    }
-
-    public void setResults(List<CreditEvent> results) {
-
-        this.results = results;
+        ObjectMapper objectMapper = ObjectMapperFactory.createObjectMapper();
+        return Feign.builder()
+                .client(new OkHttpClient())
+                .decoder(new JacksonDecoder(objectMapper))
+                .encoder(new JacksonEncoder(objectMapper))
+                .errorDecoder(new CoinkiteErrorResponseDecoder())
+                .requestInterceptor(new CoinkiteAPIKeyRequestInterceptor())
+                .requestInterceptor(new CoinkiteSigningRequestInterceptor())
+                .logger(new Slf4jLogger())
+                .logLevel(Logger.Level.FULL)
+                .target(clazz, "https://api.coinkite.com");
     }
 }

@@ -22,49 +22,32 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.service;
 
-import com.coinkite.api.list.dto.EventsResponse;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.coinkite.api.detail.ObjectDetails;
+import com.coinkite.api.detail.dto.ObjectDetailsResponse;
+import com.coinkite.config.ApiCallerFactory;
+import com.coinkite.config.ObjectMapperFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
 
-import java.io.File;
-import java.io.IOException;
+public class CoinkiteDetailsService {
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.junit.Assert.assertNotNull;
+    public static final CoinkiteDetailsService INSTANCE;
 
-public class ListEventsMarshalingTest {
+    static {
 
-    private ObjectMapper om;
-
-    @Before
-    public void setup() throws JsonProcessingException {
-
-        om = new ObjectMapper();
+        INSTANCE = new CoinkiteDetailsService(ObjectMapperFactory.createObjectMapper());
     }
 
-    @Test
-    public void canUnmarshalFromJson() throws IOException {
+    private final ObjectDetails objectDetails;
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("listEvents.json").getFile());
+    private CoinkiteDetailsService(ObjectMapper objectMapper) {
 
-        EventsResponse eventsResponse = om.readValue(file, EventsResponse.class);
-
-        assertNotNull(eventsResponse);
-        assertThat(eventsResponse.getResults().get(0), instanceOf(AccountEvent.class));
-        assertThat(eventsResponse.getResults().get(1), instanceOf(AccountEvent.class));
-        assertThat(eventsResponse.getResults().get(2), instanceOf(CreditEvent.class));
-
+        objectDetails = ApiCallerFactory.create(ObjectDetails.class);
     }
 
-    @Test
-    public void canMarshalToJson() throws JsonProcessingException {
+    public ObjectDetailsResponse lookupDetails(String ckrefnum) {
 
-
+        return objectDetails.detail(ckrefnum);
     }
 }

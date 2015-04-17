@@ -22,8 +22,10 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.detail.dto;
 
+import com.coinkite.api.BaseCoinkiteDomain;
+import com.coinkite.api.model.Event;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -32,6 +34,17 @@ import javax.annotation.Generated;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class AccountEvent extends Event {
+public class ObjectDetailsResponse {
 
+    private Event detail;
+
+    public Event getDetail() {
+
+        return detail;
+    }
+
+    public void setDetail(Event detail) {
+
+        this.detail = detail;
+    }
 }

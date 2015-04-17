@@ -22,31 +22,29 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.dto;
+package com.coinkite.api.model;
 
-import com.coinkite.api.PageableFilterable;
-import com.coinkite.api.model.CreditEvent;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
-import java.util.ArrayList;
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class CreditsResponse extends PageableFilterable {
+public class CreditEvent extends Event {
 
-    private List<CreditEvent> results = new ArrayList<>();
+    @JsonProperty("credit_txo")
+    private CreditTransaction creditTransaction;
 
-    public List<CreditEvent> getResults() {
+    public CreditTransaction getCreditTransaction() {
 
-        return results;
+        return creditTransaction;
     }
 
-    public void setResults(List<CreditEvent> results) {
+    public void setCreditTransaction(CreditTransaction creditTransaction) {
 
-        this.results = results;
+        this.creditTransaction = creditTransaction;
     }
 }

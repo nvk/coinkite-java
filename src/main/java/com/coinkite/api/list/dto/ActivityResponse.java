@@ -25,7 +25,7 @@
 package com.coinkite.api.list.dto;
 
 import com.coinkite.api.PageableFilterable;
-import com.coinkite.api.list.model.Activity;
+import com.coinkite.api.model.Activity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 

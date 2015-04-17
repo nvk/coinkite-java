@@ -22,31 +22,14 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.dto;
+package com.coinkite.api.detail;
 
-import com.coinkite.api.PageableFilterable;
-import com.coinkite.api.model.CreditEvent;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.coinkite.api.detail.dto.ObjectDetailsResponse;
+import feign.Param;
+import feign.RequestLine;
 
-import javax.annotation.Generated;
-import java.util.ArrayList;
-import java.util.List;
+public interface ObjectDetails {
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class CreditsResponse extends PageableFilterable {
-
-    private List<CreditEvent> results = new ArrayList<>();
-
-    public List<CreditEvent> getResults() {
-
-        return results;
-    }
-
-    public void setResults(List<CreditEvent> results) {
-
-        this.results = results;
-    }
+    @RequestLine("GET /v1/detail/{refnum}")
+    ObjectDetailsResponse detail(@Param("refnum") String refnum);
 }

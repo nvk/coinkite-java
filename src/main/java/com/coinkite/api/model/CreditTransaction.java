@@ -22,20 +22,19 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.model;
 
-import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class CreditTransaction extends BaseCoinkiteDomain {
+public class CreditTransaction {
 
     @JsonProperty("amount")
     private BigDecimal amount;
@@ -56,6 +55,8 @@ public class CreditTransaction extends BaseCoinkiteDomain {
     @JsonProperty("txo")
     private String txo;
 
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<>();
 
     public BigDecimal getAmount() {
 
@@ -145,5 +146,17 @@ public class CreditTransaction extends BaseCoinkiteDomain {
     public void setTxo(String txo) {
 
         this.txo = txo;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+
+        this.additionalProperties.put(name, value);
     }
 }

@@ -22,7 +22,7 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

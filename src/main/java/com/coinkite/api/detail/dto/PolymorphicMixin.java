@@ -22,29 +22,23 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.detail.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.coinkite.api.model.Block;
+import com.coinkite.api.model.Coin;
+import com.coinkite.api.model.Event;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-import javax.annotation.Generated;
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "CK_type",
+        visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Event.class, name = "CKEvent"),
+        @JsonSubTypes.Type(value = Block.class, name = "CKBlockInfo"),
+        @JsonSubTypes.Type(value = Coin.class, name = "CKMagicCoin")})
+public abstract class PolymorphicMixin {
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-public class CreditEvent extends Event {
-
-    @JsonProperty("credit_txo")
-    private CreditTransaction creditTransaction;
-
-    public CreditTransaction getCreditTransaction() {
-
-        return creditTransaction;
-    }
-
-    public void setCreditTransaction(CreditTransaction creditTransaction) {
-
-        this.creditTransaction = creditTransaction;
-    }
 }

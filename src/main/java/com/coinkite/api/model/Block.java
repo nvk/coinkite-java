@@ -22,22 +22,20 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
-import java.util.HashMap;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 public class Block extends BaseCoinkiteDomain {
 
-    @JsonProperty("CK_type")
-    private String CKType;
     @JsonProperty("coin_type")
     private String coinType;
     @JsonProperty("fully_confirmed")
@@ -46,117 +44,46 @@ public class Block extends BaseCoinkiteDomain {
     private String hash;
     @JsonProperty("height")
     private Integer height;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     *
-     * @return
-     * The CKType
-     */
-    @JsonProperty("CK_type")
-    public String getCKType() {
-        return CKType;
-    }
-
-    /**
-     *
-     * @param CKType
-     * The CK_type
-     */
-    @JsonProperty("CK_type")
-    public void setCKType(String CKType) {
-        this.CKType = CKType;
-    }
-
-    /**
-     *
-     * @return
-     * The coinType
-     */
-    @JsonProperty("coin_type")
     public String getCoinType() {
+
         return coinType;
     }
 
-    /**
-     *
-     * @param coinType
-     * The coin_type
-     */
-    @JsonProperty("coin_type")
     public void setCoinType(String coinType) {
+
         this.coinType = coinType;
     }
 
-    /**
-     *
-     * @return
-     * The fullyConfirmed
-     */
-    @JsonProperty("fully_confirmed")
     public Boolean getFullyConfirmed() {
+
         return fullyConfirmed;
     }
 
-    /**
-     *
-     * @param fullyConfirmed
-     * The fully_confirmed
-     */
-    @JsonProperty("fully_confirmed")
     public void setFullyConfirmed(Boolean fullyConfirmed) {
+
         this.fullyConfirmed = fullyConfirmed;
     }
 
-    /**
-     *
-     * @return
-     * The hash
-     */
-    @JsonProperty("hash")
     public String getHash() {
+
         return hash;
     }
 
-    /**
-     *
-     * @param hash
-     * The hash
-     */
-    @JsonProperty("hash")
     public void setHash(String hash) {
+
         this.hash = hash;
     }
 
-    /**
-     *
-     * @return
-     * The height
-     */
-    @JsonProperty("height")
     public Integer getHeight() {
+
         return height;
     }
 
-    /**
-     *
-     * @param height
-     * The height
-     */
-    @JsonProperty("height")
     public void setHeight(Integer height) {
+
         this.height = height;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 
 }

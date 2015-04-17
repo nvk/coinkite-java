@@ -22,17 +22,20 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api.list.model;
+package com.coinkite.api.model;
 
 import com.coinkite.api.BaseCoinkiteDomain;
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
+import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
-public class Receive extends BaseCoinkiteDomain {
+public class Request extends BaseCoinkiteDomain {
 
     @JsonProperty("CK_req_type")
     private String CKReqType;
@@ -41,11 +44,11 @@ public class Receive extends BaseCoinkiteDomain {
     @JsonProperty("address")
     private String address;
     @JsonProperty("amount")
-    private Object amount;
+    private CurrencyAmount amount;
     @JsonProperty("amount_so_far")
     private CurrencyAmount amountSoFar;
     @JsonProperty("archived_at")
-    private Object archivedAt;
+    private Date archivedAt;
     @JsonProperty("coin")
     private Coin coin;
     @JsonProperty("coin_type")
@@ -95,12 +98,12 @@ public class Receive extends BaseCoinkiteDomain {
         this.address = address;
     }
 
-    public Object getAmount() {
+    public CurrencyAmount getAmount() {
 
         return amount;
     }
 
-    public void setAmount(Object amount) {
+    public void setAmount(CurrencyAmount amount) {
 
         this.amount = amount;
     }
@@ -115,14 +118,14 @@ public class Receive extends BaseCoinkiteDomain {
         this.amountSoFar = amountSoFar;
     }
 
-    public Object getArchivedAt() {
+    public Date getArchivedAt() {
 
-        return archivedAt;
+        return (Date) archivedAt.clone();
     }
 
-    public void setArchivedAt(Object archivedAt) {
+    public void setArchivedAt(Date archivedAt) {
 
-        this.archivedAt = archivedAt;
+        this.archivedAt = (Date) archivedAt.clone();
     }
 
     public Coin getCoin() {
@@ -215,25 +218,4 @@ public class Receive extends BaseCoinkiteDomain {
         this.showUsername = showUsername;
     }
 
-    @Override
-    public String toString() {
-
-        return "Receive{" +
-                ", CKReqType='" + CKReqType + '\'' +
-                ", account='" + account + '\'' +
-                ", address='" + address + '\'' +
-                ", amount=" + amount +
-                ", amountSoFar=" + amountSoFar +
-                ", archivedAt=" + archivedAt +
-                ", coin=" + coin +
-                ", coinType='" + coinType + '\'' +
-                ", desc='" + desc + '\'' +
-                ", isCompleted=" + isCompleted +
-                ", memo='" + memo + '\'' +
-                ", qrUrl='" + qrUrl + '\'' +
-                ", showMemo=" + showMemo +
-                ", showPublic=" + showPublic +
-                ", showUsername=" + showUsername +
-                '}';
-    }
 }

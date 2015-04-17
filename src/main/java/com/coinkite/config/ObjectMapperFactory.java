@@ -24,6 +24,8 @@
 
 package com.coinkite.config;
 
+import com.coinkite.api.BaseCoinkiteDomain;
+import com.coinkite.api.detail.dto.PolymorphicMixin;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -39,6 +41,8 @@ public class ObjectMapperFactory {
         ObjectMapper om = new ObjectMapper();
         createModules().forEach(m -> om.registerModule(m));
 
+        om.addMixIn(BaseCoinkiteDomain.class, PolymorphicMixin.class);
+
         return om;
     }
 
@@ -46,7 +50,7 @@ public class ObjectMapperFactory {
 
         Set<Module> toReturn = new HashSet<>();
         toReturn.add(new Jdk8Module());
-        toReturn.add(new JsonOrgModule());
+        toReturn.add(new JsonOrgModule()); // to support pubnub
         return toReturn;
     }
 }

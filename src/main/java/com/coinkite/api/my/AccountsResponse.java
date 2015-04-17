@@ -24,6 +24,7 @@
 
 package com.coinkite.api.my;
 
+import com.coinkite.api.PageableFilterable;
 import com.coinkite.api.PagingInfo;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -36,22 +37,11 @@ import java.util.List;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AccountsResponse {
+public class AccountsResponse extends PageableFilterable {
 
-    private PagingInfo paging;
     private List<AccountSummary> results = new ArrayList<>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
-
-    public PagingInfo getPaging() {
-
-        return paging;
-    }
-
-    public void setPaging(PagingInfo paging) {
-
-        this.paging = paging;
-    }
 
     public List<AccountSummary> getResults() {
 
