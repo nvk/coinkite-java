@@ -27,6 +27,8 @@ package com.coinkite;
 
 import com.coinkite.api.RestError;
 import com.coinkite.config.ObjectMapperFactory;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.Response;
 import feign.RetryableException;
 import feign.codec.ErrorDecoder;
@@ -40,9 +42,10 @@ import java.util.Date;
 public class CoinkiteErrorResponseDecoder implements ErrorDecoder {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
+    private static final ObjectMapper OBJECT_MAPPER = ObjectMapperFactory.createObjectMapper();
 
     private ErrorDecoder defaultEncoder = new ErrorDecoder.Default();
-    private JacksonDecoder decoder = new JacksonDecoder(ObjectMapperFactory.createModules());
+    private JacksonDecoder decoder = new JacksonDecoder(OBJECT_MAPPER);
 
     @Override
     public Exception decode(String methodKey, Response response) {
@@ -55,9 +58,13 @@ public class CoinkiteErrorResponseDecoder implements ErrorDecoder {
         }
 
         if(restError != null) {
+            try {
+                logger.error("Error in Coinkite call: {}", OBJECT_MAPPER.writeValueAsString(restError));
+            } catch (JsonProcessingException e) {}
+
             if (response.status() == 429) throw new RetryableException(restError.getMessage(), createRetryAfter(restError.getWaitTime()));
 
-            if(response.status() == 400) throw new IllegalArgumentException(restError.getMessage());
+            if(response.status() == 400) throw new IllegalArgumentException(restError.getMessage() + restError.getHelpMsg());
 
             if(response.status() == 401) throw new SecurityException(restError.getMessage());
 

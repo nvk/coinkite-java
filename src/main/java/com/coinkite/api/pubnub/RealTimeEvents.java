@@ -24,6 +24,7 @@
 
 package com.coinkite.api.pubnub;
 
+import feign.Headers;
 import feign.RequestLine;
 
 /**
@@ -38,5 +39,6 @@ public interface RealTimeEvents {
     EventEnableResponse enable();
 
     @RequestLine("PUT /v1/pubnub/send")
+    @Headers(value = "Content-Type: application/json")
     EventSendResponse send(Object body);
 }

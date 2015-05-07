@@ -24,7 +24,6 @@
 
 package com.coinkite.api.model;
 
-import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

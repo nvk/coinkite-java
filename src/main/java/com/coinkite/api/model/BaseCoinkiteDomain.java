@@ -22,7 +22,7 @@
  *  SOFTWARE.
  */
 
-package com.coinkite.api;
+package com.coinkite.api.model;
 
 
 import com.fasterxml.jackson.annotation.*;

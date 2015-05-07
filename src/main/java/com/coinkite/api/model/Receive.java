@@ -24,7 +24,6 @@
 
 package com.coinkite.api.model;
 
-import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;

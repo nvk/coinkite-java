@@ -76,4 +76,10 @@ public class CoinkiteSigningRequestInterceptorTest {
         assertEquals("042341c271b14aaad1c898d35c9ca0bc8552e1cb4d6683f28edd57e3e86ed76c", collection.iterator().next());
     }
 
+    @Test
+    public void generateCurrentSigAndTimeStamp() {
+
+
+    }
+
 }

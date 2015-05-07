@@ -24,8 +24,10 @@
 
 package com;
 
+import com.coinkite.api.RestError;
 import com.coinkite.api.detail.dto.ObjectDetailsResponse;
 import com.coinkite.api.list.ListRecords;
+import com.coinkite.api.model.CreditEvent;
 import com.coinkite.api.my.UserLevelRecords;
 import com.coinkite.api.neww.NewSendReceiveFunds;
 import com.coinkite.api.neww.ReceiveRequest;
@@ -33,8 +35,11 @@ import com.coinkite.api.neww.ReceiveResponse;
 import com.coinkite.CoinkiteAPIKeyRequestInterceptor;
 import com.coinkite.CoinkiteSigningRequestInterceptor;
 import com.coinkite.CoinkiteErrorResponseDecoder;
+import com.coinkite.api.pubnub.*;
+import com.coinkite.config.ApiCallerFactory;
 import com.coinkite.config.ObjectMapperFactory;
 import com.coinkite.service.CoinkiteDetailsService;
+import com.pubnub.api.Pubnub;
 import feign.Feign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
@@ -51,8 +56,24 @@ public class RuntimeDemo {
 
     public static void main(String[] args) {
 
-//        RuntimeDemo demo = new RuntimeDemo();
+        RuntimeDemo demo = new RuntimeDemo();
 
+        PubnubEventResponse responseToSend = new PubnubEventResponse();
+        EventRefnums eventRefnums = new EventRefnums();
+        eventRefnums.setRequest("B9794432ED-36E534");
+        responseToSend.setRefnums(eventRefnums);
+        responseToSend.setActivity("FF7449705A-B0BBF3");
+        responseToSend.setIpAddress("127.0.0.1");
+        responseToSend.setEventCode(EventCode.credit_1);
+        responseToSend.setDesc("");
+        responseToSend.setDetailUrl("https://coinkite.com/detail-view/B9794432ED-36E534");
+
+        RealTimeEvents realTimeEvents = buildFeignClient(RealTimeEvents.class);
+        EventEnableResponse response = realTimeEvents.enable();
+        EventSendResponse send = realTimeEvents.send(responseToSend);
+
+        System.out.println(response);
+        System.out.println(send);
 //        demo.executeMyAccount();
 
 //        demo.executeNewReceive();
@@ -63,7 +84,7 @@ public class RuntimeDemo {
 
         ObjectDetailsResponse objectDetailsResponse = CoinkiteDetailsService.INSTANCE.lookupDetails("B9794432ED-36E534");
 
-        System.out.println(objectDetailsResponse);
+//        System.out.println(objectDetailsResponse);
     }
 
     private void executeMyAccount() {
@@ -80,7 +101,7 @@ public class RuntimeDemo {
         ReceiveRequest rr = new ReceiveRequest();
         rr.setAccount("07160291A3-CCF2E5");
         rr.setShowMemo(true);
-        rr.setAmount(new BigDecimal(500000));
+        rr.setAmount(new BigDecimal(33));
         rr.setMemo("memo from Demo");
         rr.setShowUsername(false);
 
@@ -93,25 +114,13 @@ public class RuntimeDemo {
 
         ListRecords listRecords = buildFeignClient(ListRecords.class);
 
+        System.out.println(listRecords.credits());
         System.out.println(listRecords.receives());
+
     }
 
-    private <T> T buildFeignClient(Class<T> clazz) {
+    private static <T> T buildFeignClient(Class<T> clazz) {
 
-//        try {
-//            Thread.sleep(TimeUnit.SECONDS.toMillis(2));
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        return Feign.builder()
-                .client(new OkHttpClient())
-                .decoder(new JacksonDecoder(ObjectMapperFactory.createModules()))
-                .encoder(new JacksonEncoder(ObjectMapperFactory.createModules()))
-                .errorDecoder(new CoinkiteErrorResponseDecoder())
-                .requestInterceptor(new CoinkiteAPIKeyRequestInterceptor())
-                .requestInterceptor(new CoinkiteSigningRequestInterceptor())
-                .logger(new Slf4jLogger())
-                .logLevel(feign.Logger.Level.FULL)
-                .target(clazz, "https://api.coinkite.com");
+        return ApiCallerFactory.create(clazz);
     }
 }

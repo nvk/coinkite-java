@@ -24,10 +24,10 @@
 
 package com.coinkite.api.model;
 
-import com.coinkite.api.BaseCoinkiteDomain;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -44,7 +44,7 @@ public abstract class Event extends BaseCoinkiteDomain {
     @JsonProperty("CK_event_type")
     private String CKEventType;
     @JsonProperty("amount")
-    private Integer amount;
+    private BigDecimal amount;
     @JsonProperty("coin_type")
     private String coinType;
     @JsonProperty("confirmed_at")
@@ -60,12 +60,12 @@ public abstract class Event extends BaseCoinkiteDomain {
         this.CKEventType = CKEventType;
     }
 
-    public Integer getAmount() {
+    public BigDecimal getAmount() {
 
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(BigDecimal amount) {
 
         this.amount = amount;
     }

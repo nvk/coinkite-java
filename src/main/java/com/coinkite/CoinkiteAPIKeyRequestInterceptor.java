@@ -45,6 +45,10 @@ public class CoinkiteAPIKeyRequestInterceptor implements RequestInterceptor {
 
         Optional<String> key = ofNullable(System.getenv(X_CK_KEY));
 
+        if(!key.isPresent()) {
+            key = ofNullable(System.getProperty(X_CK_KEY));
+        }
+
         return key.orElseThrow(() -> new RuntimeException("Coinkite key was not passed in as a jvm arg or set on env."));
     }
 

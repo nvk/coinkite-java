@@ -24,7 +24,7 @@
 
 package com.coinkite.config;
 
-import com.coinkite.api.BaseCoinkiteDomain;
+import com.coinkite.api.model.BaseCoinkiteDomain;
 import com.coinkite.api.detail.dto.PolymorphicMixin;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;

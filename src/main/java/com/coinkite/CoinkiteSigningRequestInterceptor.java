@@ -56,21 +56,12 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
 
-        String apiSecret = getApiSecret();
-
-        SecretKeySpec signingKey = new SecretKeySpec(apiSecret.getBytes(StandardCharsets.UTF_8), HMAC_SHA512_ALG);
         try {
 
-            Mac mac = Mac.getInstance(HMAC_SHA512_ALG);
-            mac.init(signingKey);
+            String[] result = createSigAndTimestamp(template.url());
 
-            String ts = getDateTime().format(ISO_DATE_TIME);
-
-            byte[] bytes = mac.doFinal(getData(template.url(), ts));
-            String encoded = Hex.encodeHexString(bytes);
-
-            template.header(X_CK_SIGN, encoded);
-            template.header(X_CK_TIMESTAMP, ts);
+            template.header(X_CK_SIGN, result[0]);
+            template.header(X_CK_TIMESTAMP, result[1]);
 
         } catch (NoSuchAlgorithmException e) {
             logger.error("Incorrect crypto algorithm specified", e);
@@ -93,6 +84,10 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
 
         Optional<String> secret = ofNullable(System.getenv(Constants.X_CK_SIGN));
 
+        if(!secret.isPresent()) {
+            secret = ofNullable(System.getProperty(Constants.X_CK_SIGN));
+        }
+
         return secret.orElseThrow(() -> new RuntimeException("Coinkite secret was not passed in as a jvm arg or set on env."));
     }
 
@@ -108,5 +103,34 @@ public class CoinkiteSigningRequestInterceptor implements RequestInterceptor {
         }
 
         return dateTime;
+    }
+
+    public String[] createSigAndTimestamp(String url) throws NoSuchAlgorithmException, InvalidKeyException {
+        String apiSecret = getApiSecret();
+        SecretKeySpec signingKey = new SecretKeySpec(apiSecret.getBytes(StandardCharsets.UTF_8), HMAC_SHA512_ALG);
+
+        Mac mac = Mac.getInstance(HMAC_SHA512_ALG);
+        mac.init(signingKey);
+
+        String ts = getDateTime().format(ISO_DATE_TIME);
+
+        byte[] bytes = mac.doFinal(getData(url, ts));
+        String encoded = Hex.encodeHexString(bytes);
+
+        return new String[] {encoded, ts};
+    }
+
+    public static void main(String[] args) {
+
+        CoinkiteSigningRequestInterceptor coinkiteSigningRequestInterceptor = new CoinkiteSigningRequestInterceptor();
+        try {
+            String[] strings = coinkiteSigningRequestInterceptor.createSigAndTimestamp("/v1/pubnub/send");
+            System.out.println(strings[0]);
+            System.out.println(strings[1]);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        }
     }
 }

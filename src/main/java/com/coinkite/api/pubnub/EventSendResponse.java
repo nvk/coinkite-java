@@ -34,7 +34,7 @@ public class EventSendResponse {
 
     @JsonProperty("enabled_keys")
     private int enabledKeys;
-    private String sent;
+    private Object sent;
 
     public int getEnabledKeys() {
 
@@ -46,12 +46,12 @@ public class EventSendResponse {
         this.enabledKeys = enabledKeys;
     }
 
-    public String getSent() {
+    public Object getSent() {
 
         return sent;
     }
 
-    public void setSent(String sent) {
+    public void setSent(Object sent) {
 
         this.sent = sent;
     }
