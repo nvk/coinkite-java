@@ -58,22 +58,22 @@ public class RuntimeDemo {
 
         RuntimeDemo demo = new RuntimeDemo();
 
-        PubnubEventResponse responseToSend = new PubnubEventResponse();
-        EventRefnums eventRefnums = new EventRefnums();
-        eventRefnums.setRequest("B9794432ED-36E534");
-        responseToSend.setRefnums(eventRefnums);
-        responseToSend.setActivity("FF7449705A-B0BBF3");
-        responseToSend.setIpAddress("127.0.0.1");
-        responseToSend.setEventCode(EventCode.credit_1);
-        responseToSend.setDesc("");
-        responseToSend.setDetailUrl("https://coinkite.com/detail-view/B9794432ED-36E534");
-
-        RealTimeEvents realTimeEvents = buildFeignClient(RealTimeEvents.class);
-        EventEnableResponse response = realTimeEvents.enable();
-        EventSendResponse send = realTimeEvents.send(responseToSend);
-
-        System.out.println(response);
-        System.out.println(send);
+//        PubnubEventResponse responseToSend = new PubnubEventResponse();
+//        EventRefnums eventRefnums = new EventRefnums();
+//        eventRefnums.setRequest("B9794432ED-36E534");
+//        responseToSend.setRefnums(eventRefnums);
+//        responseToSend.setActivity("FF7449705A-B0BBF3");
+//        responseToSend.setIpAddress("127.0.0.1");
+//        responseToSend.setEventCode(EventCode.credit_1);
+//        responseToSend.setDesc("");
+//        responseToSend.setDetailUrl("https://coinkite.com/detail-view/B9794432ED-36E534");
+//
+//        RealTimeEvents realTimeEvents = buildFeignClient(RealTimeEvents.class);
+//        EventEnableResponse response = realTimeEvents.enable();
+//        EventSendResponse send = realTimeEvents.send(responseToSend);
+//
+//        System.out.println(response);
+//        System.out.println(send);
 //        demo.executeMyAccount();
 
 //        demo.executeNewReceive();
@@ -82,9 +82,12 @@ public class RuntimeDemo {
 //            demo.executeListRecords();
 //        }
 
-        ObjectDetailsResponse objectDetailsResponse = CoinkiteDetailsService.INSTANCE.lookupDetails("B9794432ED-36E534");
+//        ObjectDetailsResponse objectDetailsResponse = CoinkiteDetailsService.INSTANCE.lookupDetails("B9794432ED-36E534");
+//        ObjectDetailsResponse objectDetailsResponse = CoinkiteDetailsService.INSTANCE.lookupDetails("E47F46E79F-A7A6EE"); // activityLog
+        ObjectDetailsResponse objectDetailsResponse = CoinkiteDetailsService.INSTANCE.lookupDetails("1739D90638-256647"); // activityLog
 
-//        System.out.println(objectDetailsResponse);
+
+        System.out.println(objectDetailsResponse);
     }
 
     private void executeMyAccount() {

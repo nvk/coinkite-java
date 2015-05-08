@@ -27,6 +27,7 @@ package com.coinkite.api.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.deser.Deserializers;
 
 import javax.annotation.Generated;
 import java.util.Date;
@@ -43,11 +44,13 @@ public class Activity extends BaseCoinkiteDomain {
     @JsonProperty("ip_address")
     private String ipAddress;
 
+    @JsonProperty("event")
+    private Event event;
 
     @JsonProperty("api_key")
     private String apiKey;
     @JsonProperty("request")
-    private Request request;
+    private BaseCoinkiteDomain request;
 
     public String getApiKey() {
 
@@ -79,12 +82,12 @@ public class Activity extends BaseCoinkiteDomain {
         this.ipAddress = ipAddress;
     }
 
-    public Request getRequest() {
+    public BaseCoinkiteDomain getRequest() {
 
         return request;
     }
 
-    public void setRequest(Request request) {
+    public void setRequest(BaseCoinkiteDomain request) {
 
         this.request = request;
     }
@@ -99,4 +102,26 @@ public class Activity extends BaseCoinkiteDomain {
         this.summary = summary;
     }
 
+    public Event getEvent() {
+
+        return event;
+    }
+
+    public void setEvent(Event event) {
+
+        this.event = event;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Activity{" +
+                "summary='" + summary + '\'' +
+                ", createdAt=" + createdAt +
+                ", ipAddress='" + ipAddress + '\'' +
+                ", event=" + event +
+                ", apiKey='" + apiKey + '\'' +
+                ", request=" + request +
+                "} " + super.toString();
+    }
 }

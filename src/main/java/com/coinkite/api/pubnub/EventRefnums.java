@@ -111,4 +111,18 @@ public class EventRefnums {
 
         this.terminalLog = terminalLog;
     }
+
+    @Override
+    public String toString() {
+
+        return "EventRefnums{" +
+                "request='" + request + '\'' +
+                ", card='" + card + '\'' +
+                ", voucher='" + voucher + '\'' +
+                ", emailMsg='" + emailMsg + '\'' +
+                ", terminal='" + terminal + '\'' +
+                ", receipt='" + receipt + '\'' +
+                ", terminalLog='" + terminalLog + '\'' +
+                '}';
+    }
 }

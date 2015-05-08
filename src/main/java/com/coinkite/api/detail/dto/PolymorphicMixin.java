@@ -24,10 +24,7 @@
 
 package com.coinkite.api.detail.dto;
 
-import com.coinkite.api.model.Block;
-import com.coinkite.api.model.Coin;
-import com.coinkite.api.model.Event;
-import com.coinkite.api.model.Receive;
+import com.coinkite.api.model.*;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
@@ -37,9 +34,10 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         property = "CK_type",
         visible = true)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Event.class, name = "CKEvent"),
+        @JsonSubTypes.Type(value = Activity.class, name = "CKActivityLog"),
         @JsonSubTypes.Type(value = Block.class, name = "CKBlockInfo"),
         @JsonSubTypes.Type(value = Coin.class, name = "CKMagicCoin"),
+        @JsonSubTypes.Type(value = Event.class, name = "CKEvent"),
         @JsonSubTypes.Type(value = Receive.class, name="CKReqReceive")})
 public abstract class PolymorphicMixin {
 

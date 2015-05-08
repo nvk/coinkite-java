@@ -47,4 +47,12 @@ public class CreditEvent extends Event {
 
         this.creditTransaction = creditTransaction;
     }
+
+    @Override
+    public String toString() {
+
+        return "CreditEvent{" +
+                "creditTransaction=" + creditTransaction +
+                "} " + super.toString();
+    }
 }

@@ -47,4 +47,12 @@ public class DebitEvent extends Event {
 
         this.debitTransaction = debitTransaction;
     }
+
+    @Override
+    public String toString() {
+
+        return "DebitEvent{" +
+                "debitTransaction=" + debitTransaction +
+                "} " + super.toString();
+    }
 }

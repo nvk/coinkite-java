@@ -24,9 +24,12 @@
 
 package com.coinkite.api.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.annotation.Generated;
+import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -40,11 +43,11 @@ public class Receive extends BaseCoinkiteDomain {
     @JsonProperty("address")
     private String address;
     @JsonProperty("amount")
-    private Object amount;
+    private CurrencyAmount amount;
     @JsonProperty("amount_so_far")
     private CurrencyAmount amountSoFar;
     @JsonProperty("archived_at")
-    private Object archivedAt;
+    private Date archivedAt;
     @JsonProperty("coin")
     private Coin coin;
     @JsonProperty("coin_type")
@@ -94,12 +97,12 @@ public class Receive extends BaseCoinkiteDomain {
         this.address = address;
     }
 
-    public Object getAmount() {
+    public CurrencyAmount getAmount() {
 
         return amount;
     }
 
-    public void setAmount(Object amount) {
+    public void setAmount(CurrencyAmount amount) {
 
         this.amount = amount;
     }
@@ -114,14 +117,14 @@ public class Receive extends BaseCoinkiteDomain {
         this.amountSoFar = amountSoFar;
     }
 
-    public Object getArchivedAt() {
+    public Date getArchivedAt() {
 
-        return archivedAt;
+        return (Date) archivedAt.clone();
     }
 
-    public void setArchivedAt(Object archivedAt) {
+    public void setArchivedAt(Date archivedAt) {
 
-        this.archivedAt = archivedAt;
+        this.archivedAt = archivedAt == null ? null : (Date) archivedAt.clone();
     }
 
     public Coin getCoin() {

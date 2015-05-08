@@ -24,6 +24,7 @@
 
 package com.coinkite.api.detail.dto;
 
+import com.coinkite.api.model.BaseCoinkiteDomain;
 import com.coinkite.api.model.Event;
 import com.fasterxml.jackson.annotation.*;
 
@@ -36,18 +37,18 @@ import java.util.Map;
 @Generated("org.jsonschema2pojo")
 public class ObjectDetailsResponse {
 
-    private Event detail;
+    private BaseCoinkiteDomain detail;
     private String summary;
 
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
 
-    public Event getDetail() {
+    public BaseCoinkiteDomain getDetail() {
 
         return detail;
     }
 
-    public void setDetail(Event detail) {
+    public void setDetail(BaseCoinkiteDomain detail) {
 
         this.detail = detail;
     }
@@ -72,5 +73,15 @@ public class ObjectDetailsResponse {
     public void setAdditionalProperty(String name, Object value) {
 
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public String toString() {
+
+        return "ObjectDetailsResponse{" +
+                "detail=" + detail +
+                ", summary='" + summary + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
     }
 }

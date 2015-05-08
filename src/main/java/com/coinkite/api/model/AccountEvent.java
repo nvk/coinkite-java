@@ -34,4 +34,10 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class AccountEvent extends Event {
 
+
+    @Override
+    public String toString() {
+
+        return "AccountEvent{} " + super.toString();
+    }
 }

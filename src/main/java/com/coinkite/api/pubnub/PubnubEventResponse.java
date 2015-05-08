@@ -101,4 +101,17 @@ public class PubnubEventResponse {
 
         this.refnums = refnums;
     }
+
+    @Override
+    public String toString() {
+
+        return "PubnubEventResponse{" +
+                "eventCode=" + eventCode +
+                ", desc='" + desc + '\'' +
+                ", activity='" + activity + '\'' +
+                ", ipAddress='" + ipAddress + '\'' +
+                ", detailUrl='" + detailUrl + '\'' +
+                ", refnums=" + refnums +
+                '}';
+    }
 }

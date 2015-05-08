@@ -39,7 +39,7 @@ import java.util.Date;
         @JsonSubTypes.Type(value = AccountEvent.class, name = "Created"),
         @JsonSubTypes.Type(value = AccountEvent.class, name = "Closed")})
 @Generated("org.jsonschema2pojo")
-public abstract class Event extends BaseCoinkiteDomain {
+public class Event extends BaseCoinkiteDomain {
 
     @JsonProperty("CK_event_type")
     private String CKEventType;
@@ -88,5 +88,16 @@ public abstract class Event extends BaseCoinkiteDomain {
     public void setConfirmedAt(Date confirmedAt) {
 
         this.confirmedAt = confirmedAt == null ? null : (Date) confirmedAt.clone();
+    }
+
+    @Override
+    public String toString() {
+
+        return "Event{" +
+                "CKEventType='" + CKEventType + '\'' +
+                ", amount=" + amount +
+                ", coinType='" + coinType + '\'' +
+                ", confirmedAt=" + confirmedAt +
+                "} " + super.toString();
     }
 }

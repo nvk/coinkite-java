@@ -30,11 +30,13 @@ import com.fasterxml.jackson.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-//@JsonTypeInfo(use= JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="CK_type")
-//@JsonSubTypes({
-//        @JsonSubTypes.Type(value = Activity.class, name = "CKActivityLog"),
-//        @JsonSubTypes.Type(value = Receive.class, name = "CKReqReceive"),
-//        @JsonSubTypes.Type(value = Event.class, name = "CKEvent")})
+@JsonTypeInfo(use= JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="CK_type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Activity.class, name = "CKActivityLog"),
+        @JsonSubTypes.Type(value = Block.class, name = "CKBlockInfo"),
+        @JsonSubTypes.Type(value = Coin.class, name = "CKMagicCoin"),
+        @JsonSubTypes.Type(value = Event.class, name = "CKEvent"),
+        @JsonSubTypes.Type(value = Receive.class, name="CKReqReceive")})
 public abstract class BaseCoinkiteDomain {
 
     @JsonProperty("CK_refnum")
@@ -74,5 +76,15 @@ public abstract class BaseCoinkiteDomain {
     public void setAdditionalProperty(String name, Object value) {
 
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public String toString() {
+
+        return "BaseCoinkiteDomain{" +
+                "CKRefnum='" + CKRefnum + '\'' +
+                ", CKType='" + CKType + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
     }
 }
